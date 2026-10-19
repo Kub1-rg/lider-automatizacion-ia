@@ -1,0 +1,90 @@
+{
+  "source": "GET /solicitudes/61..64 y GET /recepciones/7 en API local; consultas de solo lectura",
+  "captured_at_utc": "2026-10-19T21:48:24Z",
+  "requests": [
+    {
+      "http_status": 200,
+      "id": 61,
+      "cliente_id": 1,
+      "producto_id": 1,
+      "producto_nombre": "Resma papel carta",
+      "tipo": "pedido",
+      "cantidad": 10,
+      "urgencia": "alta",
+      "estado": "pendiente",
+      "sin_stock": false,
+      "stock_verificado": true,
+      "motivos_alerta": [
+        "urgencia_alta"
+      ],
+      "recepcion_id": 3
+    },
+    {
+      "http_status": 200,
+      "id": 62,
+      "cliente_id": 5,
+      "producto_id": 11,
+      "producto_nombre": "Diadema con micrófono",
+      "tipo": "consulta",
+      "cantidad": null,
+      "urgencia": "baja",
+      "estado": "pendiente",
+      "sin_stock": false,
+      "stock_verificado": false,
+      "motivos_alerta": [],
+      "recepcion_id": 4
+    },
+    {
+      "http_status": 200,
+      "id": 63,
+      "cliente_id": 3,
+      "producto_id": 2,
+      "producto_nombre": "Tóner HP 85A",
+      "tipo": "queja",
+      "cantidad": null,
+      "urgencia": "alta",
+      "estado": "pendiente",
+      "sin_stock": false,
+      "stock_verificado": false,
+      "motivos_alerta": [
+        "queja",
+        "urgencia_alta"
+      ],
+      "recepcion_id": 5
+    },
+    {
+      "http_status": 200,
+      "id": 64,
+      "cliente_id": 10,
+      "producto_id": 4,
+      "producto_nombre": "Escritorio en L",
+      "tipo": "pedido",
+      "cantidad": 6,
+      "urgencia": "baja",
+      "estado": "pendiente",
+      "sin_stock": true,
+      "stock_verificado": true,
+      "motivos_alerta": [
+        "stock_insuficiente"
+      ],
+      "recepcion_id": 6
+    }
+  ],
+  "reception": {
+    "http_status": 200,
+    "recepcion_id": 7,
+    "estado": "revision_manual",
+    "intentos_llm": 1,
+    "solicitud_id": null,
+    "motivos_revision": [
+      "cliente_desconocido"
+    ],
+    "clasificacion": {
+      "tipo": "consulta",
+      "producto": "mouse inalámbricos",
+      "cantidad": null,
+      "urgencia": "baja",
+      "resumen": "El cliente pregunta el precio de los mouse inalámbricos y si realizan envíos."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+Solicitud #PREVIEW-B4 — Suministros Andinos SAS
+Pedido con stock insuficiente
+Cliente: Constructora Horizonte
+Producto: Escritorio en L
+Cantidad solicitada: 6 unidades
+Estado: Pendiente
+Urgencia: Baja
+Recibida: 19 de octubre de 2026, 15:05 (hora Colombia)
+Motivos de alerta:
+• Stock insuficiente
+Resumen: Solicitud de seis escritorios en L para una nueva oficina.
+
+DISPONIBILIDAD ACTUAL
+Producto: Escritorio en L
+Cantidad solicitada: 6 unidades
+Disponible ahora en catálogo: 3 unidades
+Faltante según esta lectura: 3 unidades
+El aviso no representa una reserva de unidades; confirmar disponibilidad antes de comprometer el pedido.
+
+Acción sugerida:
+Confirmar alternativas o disponibilidad con el cliente antes de comprometer el pedido.
+
+Mensaje del cliente:
+Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.
+
+Notificación automática de Suministros Andinos SAS.
+Referencia de aviso: PREVIEW-B4

@@ -1,0 +1,31 @@
+services:
+  api:
+    environment:
+      NOTIFICATIONS_ENABLED: "false"
+      SMTP_HOST: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      SMTP_PASSWORD: ""
+      SMTP_FROM: ""
+      SMTP_STARTTLS: "true"
+      NOTIFICATION_TO: ""
+    ports: !override
+      - "127.0.0.1:${API_HOST_PORT:-18019}:8000"
+
+  n8n:
+    ports: !override
+      - "127.0.0.1:${N8N_HOST_PORT:-5689}:5678"
+    environment:
+      DEEPSEEK_API_KEY: "test-double-only-not-a-real-key"
+      DEEPSEEK_BASE_URL: http://llm-stub:8099/v1
+      DEEPSEEK_MODEL: fixture-classifier
+
+  llm-stub:
+    image: python:3.12-slim
+    command: ["python", "/stub/llm_stub.py"]
+    volumes:
+      - ./scripts/soporte/llm_stub.py:/stub/llm_stub.py:ro
+    ports:
+      - "127.0.0.1:5690:8099"
+    restart: unless-stopped
+

@@ -1,0 +1,20 @@
+Solicitud #PREVIEW-B3 — Suministros Andinos SAS
+Queja prioritaria: revisar respuesta al cliente
+Cliente: Oficinas Modernas SAS
+Producto: Tóner HP 85A
+Estado: Pendiente
+Urgencia: Alta
+Recibida: 19 de octubre de 2026, 15:00 (hora Colombia)
+Motivos de alerta:
+• Queja de cliente
+• Urgencia alta
+Resumen: El cliente reporta que el tóner llegó dañado y solicita respuesta hoy.
+
+Acción sugerida:
+Revisar el caso y responder al cliente con prioridad.
+
+Mensaje del cliente:
+Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.
+
+Notificación automática de Suministros Andinos SAS.
+Referencia de aviso: PREVIEW-B3

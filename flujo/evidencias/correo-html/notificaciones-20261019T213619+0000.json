@@ -1,0 +1,161 @@
+{
+  "title": "Ensayo controlado de notificaciones por correo",
+  "started_at": "2026-10-19T21:36:19+00:00",
+  "updated_at": "2026-10-19T21:36:28+00:00",
+  "status": "smtp_accepted_by_provider",
+  "n8n_webhook": "http://127.0.0.1:5688/webhook/solicitud",
+  "api_base": "http://127.0.0.1:18018",
+  "recipient": "misma cuenta SMTP configurada; omitida por privacidad",
+  "smtp_acceptance_is_not_mailbox_delivery": true,
+  "cases": [
+    {
+      "case": "B3",
+      "description": "Queja por tóner dañado con solicitud de respuesta hoy",
+      "idempotency_key": "correo-1d81653a-d0e0-4dd0-820a-6e0f1333705c",
+      "started_at": "2026-10-19T21:36:19+00:00",
+      "webhook_http_status": 201,
+      "webhook_result": {
+        "recepcion_id": 10,
+        "solicitud_id": 67,
+        "clasificacion": {
+          "tipo": "queja",
+          "producto": "tóner",
+          "cantidad": null,
+          "urgencia": "alta",
+          "resumen": "El cliente reporta que el tóner llegó dañado por segunda vez, expresa molestia y exige respuesta hoy mismo."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [
+          "queja",
+          "urgencia_alta"
+        ],
+        "notificacion_id": 6,
+        "notificacion_estado": "enviada"
+      },
+      "webhook_completed_at": "2026-10-19T21:36:23+00:00",
+      "smtp_acceptance": "accepted_by_smtp",
+      "message_id": "<179244578380.1.621509300204951945@23d9f26a80a4>",
+      "request_http_status": 200,
+      "request": {
+        "id": 67,
+        "cliente_id": 3,
+        "producto_id": 2,
+        "producto_nombre": "Tóner HP 85A",
+        "tipo": "queja",
+        "cantidad": null,
+        "urgencia": "alta",
+        "estado": "pendiente",
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [
+          "queja",
+          "urgencia_alta"
+        ],
+        "notificacion_id": 6
+      },
+      "reception_http_status": 200,
+      "reception": {
+        "recepcion_id": 10,
+        "estado": "registrada",
+        "intentos_llm": 1,
+        "clasificacion": {
+          "tipo": "queja",
+          "producto": "tóner",
+          "cantidad": null,
+          "urgencia": "alta",
+          "resumen": "El cliente reporta que el tóner llegó dañado por segunda vez, expresa molestia y exige respuesta hoy mismo."
+        },
+        "motivos_revision": [],
+        "solicitud_id": 67
+      },
+      "idempotency_check_http_status": 200,
+      "idempotency_check": {
+        "notificacion_id": 6,
+        "estado": "enviada",
+        "enviado": true,
+        "message_id": "<179244578380.1.621509300204951945@23d9f26a80a4>",
+        "fecha_actualizacion": "2026-10-19T21:36:25+00:00",
+        "detalle": "Aceptada por el servidor SMTP; esto no confirma llegada a la bandeja"
+      },
+      "status": "smtp_accepted",
+      "completed_at": "2026-10-19T21:36:23+00:00"
+    },
+    {
+      "case": "B4",
+      "description": "Pedido de seis escritorios en L con stock actual de tres",
+      "idempotency_key": "correo-3da7dc0b-1217-4296-a589-bab589d7c28b",
+      "started_at": "2026-10-19T21:36:23+00:00",
+      "webhook_http_status": 201,
+      "webhook_result": {
+        "recepcion_id": 11,
+        "solicitud_id": 68,
+        "clasificacion": {
+          "tipo": "pedido",
+          "producto": "escritorios en L",
+          "cantidad": 6,
+          "urgencia": "baja",
+          "resumen": "Solicitud de despacho de 6 escritorios en L para una nueva oficina en Rionegro."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": true,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "stock_insuficiente"
+        ],
+        "notificacion_id": 7,
+        "notificacion_estado": "enviada"
+      },
+      "webhook_completed_at": "2026-10-19T21:36:28+00:00",
+      "smtp_acceptance": "accepted_by_smtp",
+      "message_id": null,
+      "request_http_status": 200,
+      "request": {
+        "id": 68,
+        "cliente_id": 10,
+        "producto_id": 4,
+        "producto_nombre": "Escritorio en L",
+        "tipo": "pedido",
+        "cantidad": 6,
+        "urgencia": "baja",
+        "estado": "pendiente",
+        "sin_stock": true,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "stock_insuficiente"
+        ],
+        "notificacion_id": 7
+      },
+      "reception_http_status": 200,
+      "reception": {
+        "recepcion_id": 11,
+        "estado": "registrada",
+        "intentos_llm": 1,
+        "clasificacion": {
+          "tipo": "pedido",
+          "producto": "escritorios en L",
+          "cantidad": 6,
+          "urgencia": "baja",
+          "resumen": "Solicitud de despacho de 6 escritorios en L para una nueva oficina en Rionegro."
+        },
+        "motivos_revision": [],
+        "solicitud_id": 68
+      },
+      "status": "smtp_accepted",
+      "completed_at": "2026-10-19T21:36:28+00:00"
+    }
+  ],
+  "email_format_expectation": {
+    "mime_type": "multipart/alternative",
+    "parts": [
+      "text/plain",
+      "text/html"
+    ],
+    "source": "API renderer, generated server-side from the saved request and catalog data",
+    "smtp_message_captured": false
+  },
+  "completed_at": "2026-10-19T21:36:28+00:00"
+}

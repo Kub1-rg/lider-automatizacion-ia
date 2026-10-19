@@ -1,0 +1,249 @@
+{
+  "title": "Anexo B — explicación visual de trazas reales",
+  "created_at_utc": "2026-10-19T21:50:28+00:00",
+  "method": "PIL dibuja placas estáticas; imageio_ffmpeg/libx264 codifica MP4 H.264. Sin navegador y sin captura de interfaz.",
+  "notice": "Reproducción explicativa de trazas reales · No es captura de la interfaz n8n",
+  "video": {
+    "path": "flujo/evidencias/video/demostracion-anexo-b.mp4",
+    "sha256": "4503d801e3270941b21fd27076a36e9581af59146cd437c8918465b6b2482417",
+    "duration_seconds": 156.0,
+    "frame_count": 780,
+    "fps": 5,
+    "resolution": [
+      1280,
+      720
+    ],
+    "codec": "H.264/libx264",
+    "crf": 25,
+    "size_bytes": 569540
+  },
+  "inputs": {
+    "flujo/evidencias/real/flujo-real-20261019T202729Z-afcf5fa1.json": {
+      "sha256": "4a1423c768fe20726168568d7a73c290d706cdd858ef293ed4e6b60e810dc5e3"
+    },
+    "flujo/evidencias/video/catalogo_escritorio_api_readonly.json": {
+      "sha256": "68bbceee7f0ae2d84801521839d6e96784c6c0b4c7b31a0a72b981001e7d25f9"
+    },
+    "flujo/evidencias/video/api_state_readonly_snapshot.json": {
+      "sha256": "5928d58f7779e01c981c9ee352fa7708fe01493e994fe126a53b48bbc1b7c3f1"
+    },
+    "flujo/evidencias/correo-html/notificaciones-20261019T213619+0000.json": {
+      "sha256": "322b5efa7a783119ac9810e3fba6f4b05367cacbb0abb2ac748984a397191aec"
+    }
+  },
+  "run_source": {
+    "started_at_source": "2026-10-19T15:27:29-05:00",
+    "started_at_utc": "2026-10-19T20:27:29Z",
+    "finished_at_source": "2026-10-19T15:27:39-05:00",
+    "finished_at_utc": "2026-10-19T20:27:39Z",
+    "passed": 5,
+    "total_planned": 5,
+    "workflow_sha256": "8ec5735fdcbb6653ab879b416053b82e78d0fb9d454bdb7da17ba1b037d62d2c",
+    "cases": [
+      {
+        "case": "B1_resmas_urgentes",
+        "http_status": 201,
+        "receipt_id": 3,
+        "request_id": 61,
+        "passed": true
+      },
+      {
+        "case": "B2_consulta_diademas",
+        "http_status": 201,
+        "receipt_id": 4,
+        "request_id": 62,
+        "passed": true
+      },
+      {
+        "case": "B3_queja_toner",
+        "http_status": 201,
+        "receipt_id": 5,
+        "request_id": 63,
+        "passed": true
+      },
+      {
+        "case": "B4_stock_escritorios",
+        "http_status": 201,
+        "receipt_id": 6,
+        "request_id": 64,
+        "passed": true
+      },
+      {
+        "case": "B5_cliente_desconocido",
+        "http_status": 202,
+        "receipt_id": 7,
+        "request_id": null,
+        "passed": true
+      }
+    ]
+  },
+  "readonly_stock_snapshot": {
+    "source": "GET /productos?q=Escritorio en L en API local; consulta de solo lectura",
+    "captured_at_utc": "2026-10-19T21:45:28Z",
+    "result": {
+      "id": 4,
+      "nombre": "Escritorio en L",
+      "stock": 3
+    }
+  },
+  "current_api_readonly_snapshot": {
+    "source": "GET /solicitudes/61..64 y GET /recepciones/7 en API local; consultas de solo lectura",
+    "captured_at_utc": "2026-10-19T21:48:24Z",
+    "requests": [
+      {
+        "http_status": 200,
+        "id": 61,
+        "cliente_id": 1,
+        "producto_id": 1,
+        "producto_nombre": "Resma papel carta",
+        "tipo": "pedido",
+        "cantidad": 10,
+        "urgencia": "alta",
+        "estado": "pendiente",
+        "sin_stock": false,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "urgencia_alta"
+        ],
+        "recepcion_id": 3
+      },
+      {
+        "http_status": 200,
+        "id": 62,
+        "cliente_id": 5,
+        "producto_id": 11,
+        "producto_nombre": "Diadema con micrófono",
+        "tipo": "consulta",
+        "cantidad": null,
+        "urgencia": "baja",
+        "estado": "pendiente",
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [],
+        "recepcion_id": 4
+      },
+      {
+        "http_status": 200,
+        "id": 63,
+        "cliente_id": 3,
+        "producto_id": 2,
+        "producto_nombre": "Tóner HP 85A",
+        "tipo": "queja",
+        "cantidad": null,
+        "urgencia": "alta",
+        "estado": "pendiente",
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [
+          "queja",
+          "urgencia_alta"
+        ],
+        "recepcion_id": 5
+      },
+      {
+        "http_status": 200,
+        "id": 64,
+        "cliente_id": 10,
+        "producto_id": 4,
+        "producto_nombre": "Escritorio en L",
+        "tipo": "pedido",
+        "cantidad": 6,
+        "urgencia": "baja",
+        "estado": "pendiente",
+        "sin_stock": true,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "stock_insuficiente"
+        ],
+        "recepcion_id": 6
+      }
+    ],
+    "reception": {
+      "http_status": 200,
+      "recepcion_id": 7,
+      "estado": "revision_manual",
+      "intentos_llm": 1,
+      "solicitud_id": null,
+      "motivos_revision": [
+        "cliente_desconocido"
+      ],
+      "clasificacion": {
+        "tipo": "consulta",
+        "producto": "mouse inalámbricos",
+        "cantidad": null,
+        "urgencia": "baja",
+        "resumen": "El cliente pregunta el precio de los mouse inalámbricos y si realizan envíos."
+      }
+    }
+  },
+  "later_email_run": {
+    "source": "flujo/evidencias/correo-html/notificaciones-20261019T213619+0000.json",
+    "cases": [
+      {
+        "case": "B3",
+        "request_id": 67,
+        "notification_id": 6,
+        "smtp_acceptance": "accepted_by_smtp"
+      },
+      {
+        "case": "B4",
+        "request_id": 68,
+        "notification_id": 7,
+        "smtp_acceptance": "accepted_by_smtp"
+      }
+    ],
+    "note": "Ejecución posterior y separada de B1–B5; aceptación SMTP no se presenta como confirmación de llegada."
+  },
+  "slides": [
+    {
+      "path": "flujo/evidencias/video/slide-01-apertura.png",
+      "seconds": 8
+    },
+    {
+      "path": "flujo/evidencias/video/slide-02-arquitectura.png",
+      "seconds": 13
+    },
+    {
+      "path": "flujo/evidencias/video/slide-03-b1.png",
+      "seconds": 17
+    },
+    {
+      "path": "flujo/evidencias/video/slide-04-b2.png",
+      "seconds": 17
+    },
+    {
+      "path": "flujo/evidencias/video/slide-05-b3.png",
+      "seconds": 17
+    },
+    {
+      "path": "flujo/evidencias/video/slide-06-b4.png",
+      "seconds": 20
+    },
+    {
+      "path": "flujo/evidencias/video/slide-07-b5.png",
+      "seconds": 17
+    },
+    {
+      "path": "flujo/evidencias/video/slide-08-verificacion-api-actual.png",
+      "seconds": 12
+    },
+    {
+      "path": "flujo/evidencias/video/slide-09-notificaciones-html-posteriores.png",
+      "seconds": 14
+    },
+    {
+      "path": "flujo/evidencias/video/slide-10-alcance-y-limitaciones.png",
+      "seconds": 14
+    },
+    {
+      "path": "flujo/evidencias/video/slide-11-cierre.png",
+      "seconds": 7
+    }
+  ],
+  "privacy": "No se incluyen direcciones de correo, headers, claves, tokens, Message-ID ni variables del entorno.",
+  "limitations": [
+    "Reproducción explicativa basada en registros existentes; no es un screencast ni una captura de n8n.",
+    "Las trazas B1–B5 son una corrida concreta con entradas de prueba, no una evaluación general del modelo.",
+    "La ejecución HTML posterior se identifica separadamente de la corrida B1–B5."
+  ]
+}

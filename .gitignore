@@ -1,0 +1,27 @@
+# Variables locales y secretos
+.env
+.env.*
+!.env.example
+
+# Datos generados por los servicios
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+n8n_data/
+data/
+.runtime/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Entorno local y logs
+.idea/
+.vscode/
+*.log
+*.tmp
+

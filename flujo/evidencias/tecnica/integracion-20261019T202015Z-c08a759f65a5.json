@@ -1,0 +1,1145 @@
+{
+  "kind": "simulacion_tecnica_integrada",
+  "provider": "doble HTTP local y determinista; no es DeepSeek",
+  "email": "NOTIFICATIONS_ENABLED=false y SMTP vacío en el Compose técnico; no se envió correo",
+  "started_at_utc": "2026-10-19T20:20:02+00:00",
+  "run_id": "c08a759f65a5",
+  "webhook": "http://127.0.0.1:5689/webhook/solicitud",
+  "api": "http://127.0.0.1:18019",
+  "fixture": "http://127.0.0.1:5690",
+  "results": [
+    {
+      "case": "B1_resmas_urgentes",
+      "request": {
+        "cliente_email": "compras@ferreteriaeltornillo.com",
+        "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+        "idempotency_key": "tecnica-c08a759f65a5-B1_resmas_urgentes"
+      },
+      "http_status": 201,
+      "expected_http_status": 201,
+      "duration_seconds": 0.969,
+      "response": {
+        "recepcion_id": 11,
+        "solicitud_id": 66,
+        "clasificacion": {
+          "tipo": "pedido",
+          "producto": "papel carta",
+          "cantidad": 10,
+          "urgencia": "alta",
+          "resumen": "Solicita 10 resmas de papel carta con urgencia."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "urgencia_alta"
+        ],
+        "notificacion_id": 4,
+        "notificacion_estado": "pendiente"
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 11,
+          "recepcion_id": 11,
+          "idempotency_key": "tecnica-c08a759f65a5-B1_resmas_urgentes",
+          "estado": "registrada",
+          "cliente_email": "compras@ferreteriaeltornillo.com",
+          "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "papel carta",
+            "cantidad": 10,
+            "urgencia": "alta",
+            "resumen": "Solicita 10 resmas de papel carta con urgencia."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 66,
+          "resultado": {
+            "id": 66,
+            "cliente_id": 1,
+            "producto_id": 1,
+            "tipo": "pedido",
+            "cantidad": 10,
+            "urgencia": "alta",
+            "estado": "pendiente",
+            "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+            "fecha_creacion": "2026-10-19T20:20:03+00:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 11,
+            "resumen": "Solicita 10 resmas de papel carta con urgencia.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": true,
+            "motivos_alerta": [
+              "urgencia_alta"
+            ],
+            "notificacion_id": 4
+          }
+        }
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 66,
+          "cliente_id": 1,
+          "producto_id": 1,
+          "tipo": "pedido",
+          "cantidad": 10,
+          "urgencia": "alta",
+          "estado": "pendiente",
+          "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+          "fecha_creacion": "2026-10-19T20:20:03+00:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 11,
+          "resumen": "Solicita 10 resmas de papel carta con urgencia.",
+          "requiere_revision": false,
+          "cliente_nombre": "Ferretería El Tornillo",
+          "cliente_email": "compras@ferreteriaeltornillo.com",
+          "producto_nombre": "Resma papel carta",
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": true,
+          "motivos_alerta": [
+            "urgencia_alta"
+          ],
+          "notificacion_id": 4
+        }
+      },
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "request_cliente_id": true,
+        "request_producto_id": true,
+        "request_cantidad": true,
+        "alert_reasons": true,
+        "notification_disabled": true
+      },
+      "pass": true
+    },
+    {
+      "case": "B2_consulta_diademas",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+        "idempotency_key": "tecnica-c08a759f65a5-B2_consulta_diademas"
+      },
+      "http_status": 201,
+      "expected_http_status": 201,
+      "duration_seconds": 0.594,
+      "response": {
+        "recepcion_id": 12,
+        "solicitud_id": 67,
+        "clasificacion": {
+          "tipo": "consulta",
+          "producto": "diademas con micrófono",
+          "cantidad": null,
+          "urgencia": "baja",
+          "resumen": "Consulta por diademas con micrófono, precio y entrega."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [],
+        "notificacion_id": null,
+        "notificacion_estado": "pendiente"
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 12,
+          "recepcion_id": 12,
+          "idempotency_key": "tecnica-c08a759f65a5-B2_consulta_diademas",
+          "estado": "registrada",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "diademas con micrófono",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "Consulta por diademas con micrófono, precio y entrega."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 67,
+          "resultado": {
+            "id": 67,
+            "cliente_id": 5,
+            "producto_id": 11,
+            "tipo": "consulta",
+            "cantidad": null,
+            "urgencia": "baja",
+            "estado": "pendiente",
+            "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+            "fecha_creacion": "2026-10-19T20:20:03+00:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 12,
+            "resumen": "Consulta por diademas con micrófono, precio y entrega.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": false,
+            "motivos_alerta": [],
+            "notificacion_id": null
+          }
+        }
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 67,
+          "cliente_id": 5,
+          "producto_id": 11,
+          "tipo": "consulta",
+          "cantidad": null,
+          "urgencia": "baja",
+          "estado": "pendiente",
+          "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+          "fecha_creacion": "2026-10-19T20:20:03+00:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 12,
+          "resumen": "Consulta por diademas con micrófono, precio y entrega.",
+          "requiere_revision": false,
+          "cliente_nombre": "Clínica Los Andes",
+          "cliente_email": "compras@clinicalosandes.com",
+          "producto_nombre": "Diadema con micrófono",
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [],
+          "notificacion_id": null
+        }
+      },
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "request_cliente_id": true,
+        "request_producto_id": true,
+        "request_cantidad": true
+      },
+      "pass": true
+    },
+    {
+      "case": "B3_queja_toner",
+      "request": {
+        "cliente_email": "compras@oficinasmodernassas.com",
+        "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+        "idempotency_key": "tecnica-c08a759f65a5-B3_queja_toner"
+      },
+      "http_status": 201,
+      "expected_http_status": 201,
+      "duration_seconds": 0.656,
+      "response": {
+        "recepcion_id": 13,
+        "solicitud_id": 68,
+        "clasificacion": {
+          "tipo": "queja",
+          "producto": "tóner",
+          "cantidad": null,
+          "urgencia": "alta",
+          "resumen": "Reporta que el tóner llegó dañado y pide respuesta."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [
+          "queja",
+          "urgencia_alta"
+        ],
+        "notificacion_id": 5,
+        "notificacion_estado": "pendiente"
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 13,
+          "recepcion_id": 13,
+          "idempotency_key": "tecnica-c08a759f65a5-B3_queja_toner",
+          "estado": "registrada",
+          "cliente_email": "compras@oficinasmodernassas.com",
+          "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+          "clasificacion": {
+            "tipo": "queja",
+            "producto": "tóner",
+            "cantidad": null,
+            "urgencia": "alta",
+            "resumen": "Reporta que el tóner llegó dañado y pide respuesta."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 68,
+          "resultado": {
+            "id": 68,
+            "cliente_id": 3,
+            "producto_id": 2,
+            "tipo": "queja",
+            "cantidad": null,
+            "urgencia": "alta",
+            "estado": "pendiente",
+            "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+            "fecha_creacion": "2026-10-19T20:20:04+00:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 13,
+            "resumen": "Reporta que el tóner llegó dañado y pide respuesta.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": false,
+            "motivos_alerta": [
+              "queja",
+              "urgencia_alta"
+            ],
+            "notificacion_id": 5
+          }
+        }
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 68,
+          "cliente_id": 3,
+          "producto_id": 2,
+          "tipo": "queja",
+          "cantidad": null,
+          "urgencia": "alta",
+          "estado": "pendiente",
+          "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+          "fecha_creacion": "2026-10-19T20:20:04+00:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 13,
+          "resumen": "Reporta que el tóner llegó dañado y pide respuesta.",
+          "requiere_revision": false,
+          "cliente_nombre": "Oficinas Modernas SAS",
+          "cliente_email": "compras@oficinasmodernassas.com",
+          "producto_nombre": "Tóner HP 85A",
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [
+            "queja",
+            "urgencia_alta"
+          ],
+          "notificacion_id": 5
+        }
+      },
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "request_cliente_id": true,
+        "request_producto_id": true,
+        "request_cantidad": true,
+        "alert_reasons": true,
+        "notification_disabled": true
+      },
+      "pass": true
+    },
+    {
+      "case": "B4_stock_escritorios",
+      "request": {
+        "cliente_email": "compras@constructorahorizonte.com",
+        "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+        "idempotency_key": "tecnica-c08a759f65a5-B4_stock_escritorios"
+      },
+      "http_status": 201,
+      "expected_http_status": 201,
+      "duration_seconds": 0.625,
+      "response": {
+        "recepcion_id": 14,
+        "solicitud_id": 69,
+        "clasificacion": {
+          "tipo": "pedido",
+          "producto": "escritorios en L",
+          "cantidad": 6,
+          "urgencia": "media",
+          "resumen": "Solicita seis escritorios en L para una nueva oficina."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": true,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "stock_insuficiente"
+        ],
+        "notificacion_id": 6,
+        "notificacion_estado": "pendiente"
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 14,
+          "recepcion_id": 14,
+          "idempotency_key": "tecnica-c08a759f65a5-B4_stock_escritorios",
+          "estado": "registrada",
+          "cliente_email": "compras@constructorahorizonte.com",
+          "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "escritorios en L",
+            "cantidad": 6,
+            "urgencia": "media",
+            "resumen": "Solicita seis escritorios en L para una nueva oficina."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 69,
+          "resultado": {
+            "id": 69,
+            "cliente_id": 10,
+            "producto_id": 4,
+            "tipo": "pedido",
+            "cantidad": 6,
+            "urgencia": "media",
+            "estado": "pendiente",
+            "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+            "fecha_creacion": "2026-10-19T20:20:04+00:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 14,
+            "resumen": "Solicita seis escritorios en L para una nueva oficina.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": true,
+            "stock_verificado": true,
+            "motivos_alerta": [
+              "stock_insuficiente"
+            ],
+            "notificacion_id": 6
+          }
+        }
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 69,
+          "cliente_id": 10,
+          "producto_id": 4,
+          "tipo": "pedido",
+          "cantidad": 6,
+          "urgencia": "media",
+          "estado": "pendiente",
+          "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+          "fecha_creacion": "2026-10-19T20:20:04+00:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 14,
+          "resumen": "Solicita seis escritorios en L para una nueva oficina.",
+          "requiere_revision": false,
+          "cliente_nombre": "Constructora Horizonte",
+          "cliente_email": "compras@constructorahorizonte.com",
+          "producto_nombre": "Escritorio en L",
+          "motivos_revision": [],
+          "sin_stock": true,
+          "stock_verificado": true,
+          "motivos_alerta": [
+            "stock_insuficiente"
+          ],
+          "notificacion_id": 6
+        }
+      },
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "request_cliente_id": true,
+        "request_producto_id": true,
+        "request_cantidad": true,
+        "alert_reasons": true,
+        "notification_disabled": true,
+        "sin_stock": true
+      },
+      "pass": true
+    },
+    {
+      "case": "B5_cliente_desconocido",
+      "request": {
+        "cliente_email": "juanperez.compras@gmail.com",
+        "mensaje": "hola buenas q precio tienen los mouse inalambricos y si hacen envios",
+        "idempotency_key": "tecnica-c08a759f65a5-B5_cliente_desconocido"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 0.625,
+      "response": {
+        "recepcion_id": 15,
+        "solicitud_id": null,
+        "clasificacion": {
+          "tipo": "consulta",
+          "producto": "mouse inalámbrico",
+          "cantidad": null,
+          "urgencia": "baja",
+          "resumen": "Consulta por mouse inalámbricos y envíos."
+        },
+        "requiere_revision": true,
+        "motivos_revision": [
+          "cliente_desconocido"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 15,
+          "recepcion_id": 15,
+          "idempotency_key": "tecnica-c08a759f65a5-B5_cliente_desconocido",
+          "estado": "revision_manual",
+          "cliente_email": "juanperez.compras@gmail.com",
+          "mensaje": "hola buenas q precio tienen los mouse inalambricos y si hacen envios",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "mouse inalámbrico",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "Consulta por mouse inalámbricos y envíos."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [
+            "cliente_desconocido"
+          ],
+          "ultimo_error": null,
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "revision_reason": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "retry_invalido_luego_valido",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_RETRY_INVALID_THEN_VALID consulta de prueba de reintento.",
+        "idempotency_key": "tecnica-c08a759f65a5-retry_invalido_luego_valido"
+      },
+      "http_status": 201,
+      "expected_http_status": 201,
+      "duration_seconds": 0.75,
+      "response": {
+        "recepcion_id": 16,
+        "solicitud_id": 70,
+        "clasificacion": {
+          "tipo": "consulta",
+          "producto": null,
+          "cantidad": null,
+          "urgencia": "baja",
+          "resumen": "Prueba de segundo intento del proveedor."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [],
+        "notificacion_id": null,
+        "notificacion_estado": "pendiente"
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 16,
+          "recepcion_id": 16,
+          "idempotency_key": "tecnica-c08a759f65a5-retry_invalido_luego_valido",
+          "estado": "registrada",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_RETRY_INVALID_THEN_VALID consulta de prueba de reintento.",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": null,
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "Prueba de segundo intento del proveedor."
+          },
+          "intentos_llm": 2,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 70,
+          "resultado": {
+            "id": 70,
+            "cliente_id": 5,
+            "producto_id": null,
+            "tipo": "consulta",
+            "cantidad": null,
+            "urgencia": "baja",
+            "estado": "pendiente",
+            "mensaje": "FIXTURE_RETRY_INVALID_THEN_VALID consulta de prueba de reintento.",
+            "fecha_creacion": "2026-10-19T20:20:06+00:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 16,
+            "resumen": "Prueba de segundo intento del proveedor.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": false,
+            "motivos_alerta": [],
+            "notificacion_id": null
+          }
+        }
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 70,
+          "cliente_id": 5,
+          "producto_id": null,
+          "tipo": "consulta",
+          "cantidad": null,
+          "urgencia": "baja",
+          "estado": "pendiente",
+          "mensaje": "FIXTURE_RETRY_INVALID_THEN_VALID consulta de prueba de reintento.",
+          "fecha_creacion": "2026-10-19T20:20:06+00:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 16,
+          "resumen": "Prueba de segundo intento del proveedor.",
+          "requiere_revision": false,
+          "cliente_nombre": "Clínica Los Andes",
+          "cliente_email": "compras@clinicalosandes.com",
+          "producto_nombre": null,
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [],
+          "notificacion_id": null
+        }
+      },
+      "fixture_calls": 2,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true
+      },
+      "pass": true
+    },
+    {
+      "case": "json_schema_invalido_luego_valido",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_SCHEMA_INVALID_THEN_VALID consulta de prueba con enum inválido en el primer resultado.",
+        "idempotency_key": "tecnica-c08a759f65a5-json_schema_invalido_luego_valido"
+      },
+      "http_status": 201,
+      "expected_http_status": 201,
+      "duration_seconds": 0.687,
+      "response": {
+        "recepcion_id": 17,
+        "solicitud_id": 71,
+        "clasificacion": {
+          "tipo": "consulta",
+          "producto": null,
+          "cantidad": null,
+          "urgencia": "baja",
+          "resumen": "Consulta de prueba para la integración técnica."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": false,
+        "motivos_alerta": [],
+        "notificacion_id": null,
+        "notificacion_estado": "pendiente"
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 17,
+          "recepcion_id": 17,
+          "idempotency_key": "tecnica-c08a759f65a5-json_schema_invalido_luego_valido",
+          "estado": "registrada",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_SCHEMA_INVALID_THEN_VALID consulta de prueba con enum inválido en el primer resultado.",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": null,
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "Consulta de prueba para la integración técnica."
+          },
+          "intentos_llm": 2,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 71,
+          "resultado": {
+            "id": 71,
+            "cliente_id": 5,
+            "producto_id": null,
+            "tipo": "consulta",
+            "cantidad": null,
+            "urgencia": "baja",
+            "estado": "pendiente",
+            "mensaje": "FIXTURE_SCHEMA_INVALID_THEN_VALID consulta de prueba con enum inválido en el primer resultado.",
+            "fecha_creacion": "2026-10-19T20:20:06+00:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 17,
+            "resumen": "Consulta de prueba para la integración técnica.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": false,
+            "motivos_alerta": [],
+            "notificacion_id": null
+          }
+        }
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 71,
+          "cliente_id": 5,
+          "producto_id": null,
+          "tipo": "consulta",
+          "cantidad": null,
+          "urgencia": "baja",
+          "estado": "pendiente",
+          "mensaje": "FIXTURE_SCHEMA_INVALID_THEN_VALID consulta de prueba con enum inválido en el primer resultado.",
+          "fecha_creacion": "2026-10-19T20:20:06+00:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 17,
+          "resumen": "Consulta de prueba para la integración técnica.",
+          "requiere_revision": false,
+          "cliente_nombre": "Clínica Los Andes",
+          "cliente_email": "compras@clinicalosandes.com",
+          "producto_nombre": null,
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [],
+          "notificacion_id": null
+        }
+      },
+      "fixture_calls": 2,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true
+      },
+      "pass": true
+    },
+    {
+      "case": "dos_respuestas_invalidas_revision",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_ALWAYS_INVALID solicitud que requiere revisión manual.",
+        "idempotency_key": "tecnica-c08a759f65a5-dos_respuestas_invalidas_revision"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 0.656,
+      "response": {
+        "recepcion_id": 18,
+        "solicitud_id": null,
+        "clasificacion": null,
+        "requiere_revision": true,
+        "motivos_revision": [
+          "invalid_json"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 18,
+          "recepcion_id": 18,
+          "idempotency_key": "tecnica-c08a759f65a5-dos_respuestas_invalidas_revision",
+          "estado": "revision_manual",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_ALWAYS_INVALID solicitud que requiere revisión manual.",
+          "clasificacion": null,
+          "intentos_llm": 2,
+          "motivos_revision": [
+            "invalid_json"
+          ],
+          "ultimo_error": "invalid_json",
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 2,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "multiples_productos_revision",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_MULTIPRODUCT Necesitamos 2 resmas de papel carta y 3 mouse inalámbricos.",
+        "idempotency_key": "tecnica-c08a759f65a5-multiples_productos_revision"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 0.547,
+      "response": {
+        "recepcion_id": 19,
+        "solicitud_id": null,
+        "clasificacion": {
+          "tipo": "pedido",
+          "producto": "resma papel carta",
+          "cantidad": 2,
+          "urgencia": "baja",
+          "resumen": "Solicita resmas de papel carta y mouse inalámbricos."
+        },
+        "requiere_revision": true,
+        "motivos_revision": [
+          "multiples_productos"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 19,
+          "recepcion_id": 19,
+          "idempotency_key": "tecnica-c08a759f65a5-multiples_productos_revision",
+          "estado": "revision_manual",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_MULTIPRODUCT Necesitamos 2 resmas de papel carta y 3 mouse inalámbricos.",
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "resma papel carta",
+            "cantidad": 2,
+            "urgencia": "baja",
+            "resumen": "Solicita resmas de papel carta y mouse inalámbricos."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [
+            "multiples_productos"
+          ],
+          "ultimo_error": null,
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "revision_reason": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "producto_ajeno_catalogo_revision",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_UNKNOWN_PRODUCT ¿Tienen impresora láser industrial?",
+        "idempotency_key": "tecnica-c08a759f65a5-producto_ajeno_catalogo_revision"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 0.531,
+      "response": {
+        "recepcion_id": 20,
+        "solicitud_id": null,
+        "clasificacion": {
+          "tipo": "consulta",
+          "producto": "impresora láser industrial",
+          "cantidad": null,
+          "urgencia": "baja",
+          "resumen": "Consulta por una impresora láser industrial."
+        },
+        "requiere_revision": true,
+        "motivos_revision": [
+          "producto_no_encontrado"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 20,
+          "recepcion_id": 20,
+          "idempotency_key": "tecnica-c08a759f65a5-producto_ajeno_catalogo_revision",
+          "estado": "revision_manual",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_UNKNOWN_PRODUCT ¿Tienen impresora láser industrial?",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "impresora láser industrial",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "Consulta por una impresora láser industrial."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [
+            "producto_no_encontrado"
+          ],
+          "ultimo_error": null,
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "classification": true,
+        "revision_reason": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "proveedor_401",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_HTTP_401 error sintético de autenticación del proveedor.",
+        "idempotency_key": "tecnica-c08a759f65a5-proveedor_401"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 0.484,
+      "response": {
+        "recepcion_id": 21,
+        "solicitud_id": null,
+        "clasificacion": null,
+        "requiere_revision": true,
+        "motivos_revision": [
+          "llm_auth"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 21,
+          "recepcion_id": 21,
+          "idempotency_key": "tecnica-c08a759f65a5-proveedor_401",
+          "estado": "revision_manual",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_HTTP_401 error sintético de autenticación del proveedor.",
+          "clasificacion": null,
+          "intentos_llm": 1,
+          "motivos_revision": [
+            "llm_auth"
+          ],
+          "ultimo_error": "llm_auth",
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 1,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "proveedor_503",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_HTTP_503 error sintético de disponibilidad del proveedor.",
+        "idempotency_key": "tecnica-c08a759f65a5-proveedor_503"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 0.641,
+      "response": {
+        "recepcion_id": 22,
+        "solicitud_id": null,
+        "clasificacion": null,
+        "requiere_revision": true,
+        "motivos_revision": [
+          "llm_unavailable"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 22,
+          "recepcion_id": 22,
+          "idempotency_key": "tecnica-c08a759f65a5-proveedor_503",
+          "estado": "revision_manual",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_HTTP_503 error sintético de disponibilidad del proveedor.",
+          "clasificacion": null,
+          "intentos_llm": 2,
+          "motivos_revision": [
+            "llm_unavailable"
+          ],
+          "ultimo_error": "llm_unavailable",
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 2,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "proveedor_timeout_conexion",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "FIXTURE_TIMEOUT corte sintético de conexión del proveedor.",
+        "idempotency_key": "tecnica-c08a759f65a5-proveedor_timeout_conexion"
+      },
+      "http_status": 202,
+      "expected_http_status": 202,
+      "duration_seconds": 4.047,
+      "response": {
+        "recepcion_id": 23,
+        "solicitud_id": null,
+        "clasificacion": null,
+        "requiere_revision": true,
+        "motivos_revision": [
+          "invalid_json"
+        ]
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 23,
+          "recepcion_id": 23,
+          "idempotency_key": "tecnica-c08a759f65a5-proveedor_timeout_conexion",
+          "estado": "revision_manual",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "FIXTURE_TIMEOUT corte sintético de conexión del proveedor.",
+          "clasificacion": null,
+          "intentos_llm": 2,
+          "motivos_revision": [
+            "invalid_json"
+          ],
+          "ultimo_error": "invalid_json",
+          "solicitud_id": null,
+          "resultado": null
+        }
+      },
+      "solicitud_api": null,
+      "fixture_calls": 2,
+      "checks": {
+        "webhook_status": true,
+        "receipt_persisted": true,
+        "receipt_state": true,
+        "receipt_attempts": true,
+        "actual_fixture_calls": true,
+        "no_request_created": true
+      },
+      "pass": true
+    },
+    {
+      "case": "replay_misma_clave_y_cuerpo",
+      "http_status": 200,
+      "duration_seconds": 0.172,
+      "response": {
+        "recepcion_id": 11,
+        "solicitud_id": 66,
+        "clasificacion": {
+          "tipo": "pedido",
+          "producto": "papel carta",
+          "cantidad": 10,
+          "urgencia": "alta",
+          "resumen": "Solicita 10 resmas de papel carta con urgencia."
+        },
+        "requiere_revision": false,
+        "motivos_revision": [],
+        "sin_stock": false,
+        "stock_verificado": true,
+        "motivos_alerta": [
+          "urgencia_alta"
+        ],
+        "notificacion_id": 4,
+        "notificacion_estado": null,
+        "replay": true
+      },
+      "fixture_calls_before": 1,
+      "fixture_calls_after": 1,
+      "checks": {
+        "http_200": true,
+        "same_reception": true,
+        "same_request": true,
+        "no_extra_llm_call": true
+      },
+      "pass": true
+    },
+    {
+      "case": "misma_clave_cuerpo_distinto_via_webhook",
+      "http_status": 409,
+      "duration_seconds": 0.141,
+      "response": {
+        "error": "idempotency_conflict",
+        "detail": "Idempotency-Key ya existe con un cuerpo distinto"
+      },
+      "pass": true
+    },
+    {
+      "case": "entrada_invalida",
+      "http_status": 422,
+      "duration_seconds": 0.078,
+      "response": {
+        "error": "invalid_input",
+        "detail": "cliente_email válido y mensaje de hasta 8000 caracteres son obligatorios"
+      },
+      "fixture_calls_before": 0,
+      "fixture_calls_after": 0,
+      "pass": true
+    }
+  ],
+  "passed": 16,
+  "total": 16
+}

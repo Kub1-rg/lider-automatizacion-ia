@@ -1,0 +1,19 @@
+# Archivos de texto versionados con finales LF para reproducibilidad.
+*.py text eol=lf
+*.ps1 text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.sql text eol=lf
+
+# Semilla entregada: conservar exactamente sus bytes originales.
+/material/datos_prueba.sql -text
+
+# Evidencias y prompts auditados: sus hashes corresponden a los bytes guardados.
+/flujo/solicitudes.json -text
+/flujo/evidencias/** -text
+/prompts/** -text
+

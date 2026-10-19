@@ -1,0 +1,9 @@
+{
+  "source": "GET /productos?q=Escritorio en L en API local; consulta de solo lectura",
+  "captured_at_utc": "2026-10-19T21:45:28Z",
+  "result": {
+    "id": 4,
+    "nombre": "Escritorio en L",
+    "stock": 3
+  }
+}

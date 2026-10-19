@@ -1,0 +1,20 @@
+Solicitud #PREVIEW-URGENTE — Suministros Andinos SAS
+Solicitud prioritaria
+Cliente: Ferretería El Tornillo
+Producto: Resma papel carta
+Cantidad solicitada: 10 unidades
+Estado: Pendiente
+Urgencia: Alta
+Recibida: 19 de octubre de 2026, 15:10 (hora Colombia)
+Motivos de alerta:
+• Urgencia alta
+Resumen: Pedido urgente de diez resmas de papel carta.
+
+Acción sugerida:
+Revisar el caso y responder al cliente con prioridad.
+
+Mensaje del cliente:
+Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.
+
+Notificación automática de Suministros Andinos SAS.
+Referencia de aviso: PREVIEW-URGENTE

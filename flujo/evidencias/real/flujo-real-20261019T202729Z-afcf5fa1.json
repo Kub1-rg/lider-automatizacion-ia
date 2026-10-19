@@ -1,0 +1,703 @@
+{
+  "kind": "prueba_real_webhook_deepseek",
+  "provider": "DeepSeek configurado por el proceso n8n; no se capturaron credenciales ni headers",
+  "model_configured": "deepseek-flash",
+  "metadata": {
+    "note": "Metadata selectiva extraída de ejecuciones n8n: cada request_id, modelo, estado HTTP, finish_reason y usage está asociado a su caso en results[].n8n_execution.provider_calls; los totales agregados están en llm_usage_totals. No se exportan headers ni credenciales."
+  },
+  "started_at_utc": "2026-10-19T15:27:29-05:00",
+  "webhook": "http://127.0.0.1:5688/webhook/solicitud",
+  "api": "http://127.0.0.1:18018",
+  "email_sending": "not_attempted_by_runner; SMTP permanece deshabilitado",
+  "health": {
+    "http_status": 200,
+    "body": {
+      "status": "ok",
+      "database": "ok",
+      "llm_provider": "n8n"
+    },
+    "raw_body": null
+  },
+  "results": [
+    {
+      "case": "B1_resmas_urgentes",
+      "request": {
+        "cliente_email": "compras@ferreteriaeltornillo.com",
+        "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+        "idempotency_key": "flujo-real-a87ede1d-ba51-4c7a-bfbd-ddae1c87661e"
+      },
+      "elapsed_seconds": 2.078,
+      "webhook": {
+        "http_status": 201,
+        "body": {
+          "recepcion_id": 3,
+          "solicitud_id": 61,
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "resmas de papel carta",
+            "cantidad": 10,
+            "urgencia": "alta",
+            "resumen": "Solicitud de 10 resmas de papel carta para el viernes, indicada como urgente."
+          },
+          "requiere_revision": false,
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": true,
+          "motivos_alerta": [
+            "urgencia_alta"
+          ],
+          "notificacion_id": 1,
+          "notificacion_estado": "pendiente"
+        },
+        "raw_body": null
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 3,
+          "recepcion_id": 3,
+          "idempotency_key": "flujo-real-a87ede1d-ba51-4c7a-bfbd-ddae1c87661e",
+          "estado": "registrada",
+          "cliente_email": "compras@ferreteriaeltornillo.com",
+          "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "resmas de papel carta",
+            "cantidad": 10,
+            "urgencia": "alta",
+            "resumen": "Solicitud de 10 resmas de papel carta para el viernes, indicada como urgente."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 61,
+          "resultado": {
+            "id": 61,
+            "cliente_id": 1,
+            "producto_id": 1,
+            "tipo": "pedido",
+            "cantidad": 10,
+            "urgencia": "alta",
+            "estado": "pendiente",
+            "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+            "fecha_creacion": "2026-10-19T15:27:32-05:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 3,
+            "resumen": "Solicitud de 10 resmas de papel carta para el viernes, indicada como urgente.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": true,
+            "motivos_alerta": [
+              "urgencia_alta"
+            ],
+            "notificacion_id": 1
+          }
+        },
+        "raw_body": null
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 61,
+          "cliente_id": 1,
+          "producto_id": 1,
+          "tipo": "pedido",
+          "cantidad": 10,
+          "urgencia": "alta",
+          "estado": "pendiente",
+          "mensaje": "Buenos días, necesitamos 10 resmas de papel carta para el viernes, es urgente.",
+          "fecha_creacion": "2026-10-19T15:27:32-05:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 3,
+          "resumen": "Solicitud de 10 resmas de papel carta para el viernes, indicada como urgente.",
+          "requiere_revision": false,
+          "cliente_nombre": "Ferretería El Tornillo",
+          "cliente_email": "compras@ferreteriaeltornillo.com",
+          "producto_nombre": "Resma papel carta",
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": true,
+          "motivos_alerta": [
+            "urgencia_alta"
+          ],
+          "notificacion_id": 1
+        },
+        "raw_body": null
+      },
+      "checks": {
+        "webhook_http_status": true,
+        "reception_persisted": true,
+        "solicitation_persisted": true,
+        "client_id": true,
+        "product_id": true,
+        "type": true,
+        "quantity": true,
+        "urgency_high": true,
+        "stock_result": true,
+        "stock_verified": true,
+        "alert_urgencia_alta": true
+      },
+      "passed": true,
+      "n8n_execution": {
+        "case": "B1_resmas_urgentes",
+        "execution_id": 6,
+        "execution_status": "success",
+        "started_at": "2026-10-19 20:27:31.248",
+        "provider_calls": [
+          {
+            "node": "DeepSeek extracción intento 1",
+            "http_status": 200,
+            "request_id": "ddf69439-0932-4a41-b39b-b74581baa603",
+            "model": "deepseek-flash",
+            "usage": {
+              "prompt_tokens": 769,
+              "completion_tokens": 53,
+              "total_tokens": 822,
+              "prompt_tokens_details": {
+                "cached_tokens": 0
+              },
+              "prompt_cache_hit_tokens": 0,
+              "prompt_cache_miss_tokens": 769
+            },
+            "finish_reason": "stop"
+          }
+        ]
+      }
+    },
+    {
+      "case": "B2_consulta_diademas",
+      "request": {
+        "cliente_email": "compras@clinicalosandes.com",
+        "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+        "idempotency_key": "flujo-real-ba8255e7-9acc-463d-b742-34ff1322a32b"
+      },
+      "elapsed_seconds": 1.984,
+      "webhook": {
+        "http_status": 201,
+        "body": {
+          "recepcion_id": 4,
+          "solicitud_id": 62,
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "diademas con micrófono",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "El cliente pregunta si hay diademas con micrófono, su precio y el tiempo de llegada."
+          },
+          "requiere_revision": false,
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [],
+          "notificacion_id": null,
+          "notificacion_estado": "pendiente"
+        },
+        "raw_body": null
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 4,
+          "recepcion_id": 4,
+          "idempotency_key": "flujo-real-ba8255e7-9acc-463d-b742-34ff1322a32b",
+          "estado": "registrada",
+          "cliente_email": "compras@clinicalosandes.com",
+          "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "diademas con micrófono",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "El cliente pregunta si hay diademas con micrófono, su precio y el tiempo de llegada."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 62,
+          "resultado": {
+            "id": 62,
+            "cliente_id": 5,
+            "producto_id": 11,
+            "tipo": "consulta",
+            "cantidad": null,
+            "urgencia": "baja",
+            "estado": "pendiente",
+            "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+            "fecha_creacion": "2026-10-19T15:27:34-05:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 4,
+            "resumen": "El cliente pregunta si hay diademas con micrófono, su precio y el tiempo de llegada.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": false,
+            "motivos_alerta": [],
+            "notificacion_id": null
+          }
+        },
+        "raw_body": null
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 62,
+          "cliente_id": 5,
+          "producto_id": 11,
+          "tipo": "consulta",
+          "cantidad": null,
+          "urgencia": "baja",
+          "estado": "pendiente",
+          "mensaje": "Hola, ¿tienen diademas con micrófono? ¿Cuánto valen y en cuánto tiempo llegan?",
+          "fecha_creacion": "2026-10-19T15:27:34-05:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 4,
+          "resumen": "El cliente pregunta si hay diademas con micrófono, su precio y el tiempo de llegada.",
+          "requiere_revision": false,
+          "cliente_nombre": "Clínica Los Andes",
+          "cliente_email": "compras@clinicalosandes.com",
+          "producto_nombre": "Diadema con micrófono",
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [],
+          "notificacion_id": null
+        },
+        "raw_body": null
+      },
+      "checks": {
+        "webhook_http_status": true,
+        "reception_persisted": true,
+        "solicitation_persisted": true,
+        "client_id": true,
+        "product_id": true,
+        "type": true,
+        "quantity": true,
+        "no_stock_alert_for_consultation": true
+      },
+      "passed": true,
+      "n8n_execution": {
+        "case": "B2_consulta_diademas",
+        "execution_id": 7,
+        "execution_status": "success",
+        "started_at": "2026-10-19 20:27:33.129",
+        "provider_calls": [
+          {
+            "node": "DeepSeek extracción intento 1",
+            "http_status": 200,
+            "request_id": "ee8be533-5fbd-4835-9f77-4d95195b85f8",
+            "model": "deepseek-flash",
+            "usage": {
+              "prompt_tokens": 776,
+              "completion_tokens": 56,
+              "total_tokens": 832,
+              "prompt_tokens_details": {
+                "cached_tokens": 512
+              },
+              "prompt_cache_hit_tokens": 512,
+              "prompt_cache_miss_tokens": 264
+            },
+            "finish_reason": "stop"
+          }
+        ]
+      }
+    },
+    {
+      "case": "B3_queja_toner",
+      "request": {
+        "cliente_email": "compras@oficinasmodernassas.com",
+        "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+        "idempotency_key": "flujo-real-10421326-dedd-479d-b375-0b4e0ac12dae"
+      },
+      "elapsed_seconds": 1.859,
+      "webhook": {
+        "http_status": 201,
+        "body": {
+          "recepcion_id": 5,
+          "solicitud_id": 63,
+          "clasificacion": {
+            "tipo": "queja",
+            "producto": "tóner",
+            "cantidad": null,
+            "urgencia": "alta",
+            "resumen": "El cliente reporta que el tóner llegó dañado por segunda vez, expresa molestia y exige respuesta hoy mismo."
+          },
+          "requiere_revision": false,
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [
+            "queja",
+            "urgencia_alta"
+          ],
+          "notificacion_id": 2,
+          "notificacion_estado": "pendiente"
+        },
+        "raw_body": null
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 5,
+          "recepcion_id": 5,
+          "idempotency_key": "flujo-real-10421326-dedd-479d-b375-0b4e0ac12dae",
+          "estado": "registrada",
+          "cliente_email": "compras@oficinasmodernassas.com",
+          "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+          "clasificacion": {
+            "tipo": "queja",
+            "producto": "tóner",
+            "cantidad": null,
+            "urgencia": "alta",
+            "resumen": "El cliente reporta que el tóner llegó dañado por segunda vez, expresa molestia y exige respuesta hoy mismo."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 63,
+          "resultado": {
+            "id": 63,
+            "cliente_id": 3,
+            "producto_id": 2,
+            "tipo": "queja",
+            "cantidad": null,
+            "urgencia": "alta",
+            "estado": "pendiente",
+            "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+            "fecha_creacion": "2026-10-19T15:27:36-05:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 5,
+            "resumen": "El cliente reporta que el tóner llegó dañado por segunda vez, expresa molestia y exige respuesta hoy mismo.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": false,
+            "stock_verificado": false,
+            "motivos_alerta": [
+              "queja",
+              "urgencia_alta"
+            ],
+            "notificacion_id": 2
+          }
+        },
+        "raw_body": null
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 63,
+          "cliente_id": 3,
+          "producto_id": 2,
+          "tipo": "queja",
+          "cantidad": null,
+          "urgencia": "alta",
+          "estado": "pendiente",
+          "mensaje": "Es la segunda vez que el tóner llega dañado. Estamos muy molestos, necesitamos que nos respondan hoy mismo.",
+          "fecha_creacion": "2026-10-19T15:27:36-05:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 5,
+          "resumen": "El cliente reporta que el tóner llegó dañado por segunda vez, expresa molestia y exige respuesta hoy mismo.",
+          "requiere_revision": false,
+          "cliente_nombre": "Oficinas Modernas SAS",
+          "cliente_email": "compras@oficinasmodernassas.com",
+          "producto_nombre": "Tóner HP 85A",
+          "motivos_revision": [],
+          "sin_stock": false,
+          "stock_verificado": false,
+          "motivos_alerta": [
+            "queja",
+            "urgencia_alta"
+          ],
+          "notificacion_id": 2
+        },
+        "raw_body": null
+      },
+      "checks": {
+        "webhook_http_status": true,
+        "reception_persisted": true,
+        "solicitation_persisted": true,
+        "client_id": true,
+        "product_id": true,
+        "type": true,
+        "quantity": true,
+        "urgency_high": true,
+        "alert_queja": true
+      },
+      "passed": true,
+      "n8n_execution": {
+        "case": "B3_queja_toner",
+        "execution_id": 8,
+        "execution_status": "success",
+        "started_at": "2026-10-19 20:27:34.933",
+        "provider_calls": [
+          {
+            "node": "DeepSeek extracción intento 1",
+            "http_status": 200,
+            "request_id": "08fb449e-dc7b-4250-aaa3-40c8b069b44e",
+            "model": "deepseek-flash",
+            "usage": {
+              "prompt_tokens": 778,
+              "completion_tokens": 57,
+              "total_tokens": 835,
+              "prompt_tokens_details": {
+                "cached_tokens": 512
+              },
+              "prompt_cache_hit_tokens": 512,
+              "prompt_cache_miss_tokens": 266
+            },
+            "finish_reason": "stop"
+          }
+        ]
+      }
+    },
+    {
+      "case": "B4_stock_escritorios",
+      "request": {
+        "cliente_email": "compras@constructorahorizonte.com",
+        "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+        "idempotency_key": "flujo-real-4003cb9f-9305-4139-8b5b-f79cb45ab110"
+      },
+      "elapsed_seconds": 2.031,
+      "webhook": {
+        "http_status": 201,
+        "body": {
+          "recepcion_id": 6,
+          "solicitud_id": 64,
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "escritorios en L",
+            "cantidad": 6,
+            "urgencia": "baja",
+            "resumen": "Solicitud de despacho de 6 escritorios en L para la nueva oficina de Rionegro."
+          },
+          "requiere_revision": false,
+          "motivos_revision": [],
+          "sin_stock": true,
+          "stock_verificado": true,
+          "motivos_alerta": [
+            "stock_insuficiente"
+          ],
+          "notificacion_id": 3,
+          "notificacion_estado": "pendiente"
+        },
+        "raw_body": null
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 6,
+          "recepcion_id": 6,
+          "idempotency_key": "flujo-real-4003cb9f-9305-4139-8b5b-f79cb45ab110",
+          "estado": "registrada",
+          "cliente_email": "compras@constructorahorizonte.com",
+          "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+          "clasificacion": {
+            "tipo": "pedido",
+            "producto": "escritorios en L",
+            "cantidad": 6,
+            "urgencia": "baja",
+            "resumen": "Solicitud de despacho de 6 escritorios en L para la nueva oficina de Rionegro."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [],
+          "ultimo_error": null,
+          "solicitud_id": 64,
+          "resultado": {
+            "id": 64,
+            "cliente_id": 10,
+            "producto_id": 4,
+            "tipo": "pedido",
+            "cantidad": 6,
+            "urgencia": "baja",
+            "estado": "pendiente",
+            "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+            "fecha_creacion": "2026-10-19T15:27:38-05:00",
+            "fecha_resolucion": null,
+            "recepcion_id": 6,
+            "resumen": "Solicitud de despacho de 6 escritorios en L para la nueva oficina de Rionegro.",
+            "requiere_revision": false,
+            "motivos_revision": [],
+            "sin_stock": true,
+            "stock_verificado": true,
+            "motivos_alerta": [
+              "stock_insuficiente"
+            ],
+            "notificacion_id": 3
+          }
+        },
+        "raw_body": null
+      },
+      "solicitud_api": {
+        "http_status": 200,
+        "body": {
+          "id": 64,
+          "cliente_id": 10,
+          "producto_id": 4,
+          "tipo": "pedido",
+          "cantidad": 6,
+          "urgencia": "baja",
+          "estado": "pendiente",
+          "mensaje": "Por favor despachar 6 escritorios en L para la nueva oficina de Rionegro.",
+          "fecha_creacion": "2026-10-19T15:27:38-05:00",
+          "fecha_resolucion": null,
+          "recepcion_id": 6,
+          "resumen": "Solicitud de despacho de 6 escritorios en L para la nueva oficina de Rionegro.",
+          "requiere_revision": false,
+          "cliente_nombre": "Constructora Horizonte",
+          "cliente_email": "compras@constructorahorizonte.com",
+          "producto_nombre": "Escritorio en L",
+          "motivos_revision": [],
+          "sin_stock": true,
+          "stock_verificado": true,
+          "motivos_alerta": [
+            "stock_insuficiente"
+          ],
+          "notificacion_id": 3
+        },
+        "raw_body": null
+      },
+      "checks": {
+        "webhook_http_status": true,
+        "reception_persisted": true,
+        "solicitation_persisted": true,
+        "client_id": true,
+        "product_id": true,
+        "type": true,
+        "quantity": true,
+        "stock_result": true,
+        "stock_verified": true,
+        "alert_stock_insuficiente": true
+      },
+      "passed": true,
+      "n8n_execution": {
+        "case": "B4_stock_escritorios",
+        "execution_id": 9,
+        "execution_status": "success",
+        "started_at": "2026-10-19 20:27:36.617",
+        "provider_calls": [
+          {
+            "node": "DeepSeek extracción intento 1",
+            "http_status": 200,
+            "request_id": "de59f153-a252-4f0e-b9d4-330416d93864",
+            "model": "deepseek-flash",
+            "usage": {
+              "prompt_tokens": 769,
+              "completion_tokens": 58,
+              "total_tokens": 827,
+              "prompt_tokens_details": {
+                "cached_tokens": 512
+              },
+              "prompt_cache_hit_tokens": 512,
+              "prompt_cache_miss_tokens": 257
+            },
+            "finish_reason": "stop"
+          }
+        ]
+      }
+    },
+    {
+      "case": "B5_cliente_desconocido",
+      "request": {
+        "cliente_email": "juanperez.compras@gmail.com",
+        "mensaje": "hola buenas q precio tienen los mouse inalambricos y si hacen envios",
+        "idempotency_key": "flujo-real-68841ff4-ea7f-4edc-9648-2625a45e26d6"
+      },
+      "elapsed_seconds": 1.859,
+      "webhook": {
+        "http_status": 202,
+        "body": {
+          "recepcion_id": 7,
+          "solicitud_id": null,
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "mouse inalámbricos",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "El cliente pregunta el precio de los mouse inalámbricos y si realizan envíos."
+          },
+          "requiere_revision": true,
+          "motivos_revision": [
+            "cliente_desconocido"
+          ]
+        },
+        "raw_body": null
+      },
+      "recepcion_api": {
+        "http_status": 200,
+        "body": {
+          "id": 7,
+          "recepcion_id": 7,
+          "idempotency_key": "flujo-real-68841ff4-ea7f-4edc-9648-2625a45e26d6",
+          "estado": "revision_manual",
+          "cliente_email": "juanperez.compras@gmail.com",
+          "mensaje": "hola buenas q precio tienen los mouse inalambricos y si hacen envios",
+          "clasificacion": {
+            "tipo": "consulta",
+            "producto": "mouse inalámbricos",
+            "cantidad": null,
+            "urgencia": "baja",
+            "resumen": "El cliente pregunta el precio de los mouse inalámbricos y si realizan envíos."
+          },
+          "intentos_llm": 1,
+          "motivos_revision": [
+            "cliente_desconocido"
+          ],
+          "ultimo_error": null,
+          "solicitud_id": null,
+          "resultado": null
+        },
+        "raw_body": null
+      },
+      "solicitud_api": null,
+      "checks": {
+        "webhook_http_status": true,
+        "reception_persisted": true,
+        "manual_review": true,
+        "unknown_client_reason": true,
+        "no_solicitation_created": true,
+        "classification_present": true
+      },
+      "passed": true,
+      "n8n_execution": {
+        "case": "B5_cliente_desconocido",
+        "execution_id": 10,
+        "execution_status": "success",
+        "started_at": "2026-10-19 20:27:38.455",
+        "provider_calls": [
+          {
+            "node": "DeepSeek extracción intento 1",
+            "http_status": 200,
+            "request_id": "a3f1cbe4-d33c-4b64-9d98-9a66e2982010",
+            "model": "deepseek-flash",
+            "usage": {
+              "prompt_tokens": 765,
+              "completion_tokens": 54,
+              "total_tokens": 819,
+              "prompt_tokens_details": {
+                "cached_tokens": 512
+              },
+              "prompt_cache_hit_tokens": 512,
+              "prompt_cache_miss_tokens": 253
+            },
+            "finish_reason": "stop"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 5,
+  "total_planned": 5,
+  "stopped_after_failure": null,
+  "finished_at_utc": "2026-10-19T15:27:39-05:00",
+  "workflow_id": "solicitudes-ia-suministros-v1",
+  "workflow_sha256": "8ec5735fdcbb6653ab879b416053b82e78d0fb9d454bdb7da17ba1b037d62d2c",
+  "inline_system_prompt_sha256": "999edba611a5cb0627ba695fb002470209f42e8420889a009b79c048af31c21f",
+  "metadata_extracted_at_utc": "2026-10-19T20:30:29.329Z",
+  "llm_usage_totals": {
+    "calls": 5,
+    "prompt_tokens": 3857,
+    "completion_tokens": 278,
+    "total_tokens": 4135,
+    "cached_prompt_tokens": 2048,
+    "uncached_prompt_tokens": 1809
+  }
+}
