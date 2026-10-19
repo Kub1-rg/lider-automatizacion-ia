@@ -4,7 +4,7 @@ Prototipo local para recibir solicitudes de clientes, clasificarlas con un model
 
 **Estado al 19 de octubre de 2026:** API aprobada con 21 pruebas, suite técnica n8n de 16 grupos/107 aserciones, flujo B1–B5 con DeepSeek real (5/5) y chatbot C1–C4 revisado (4/4). El usuario confirmó la llegada de los dos primeros correos (solicitudes 65 y 66); SMTP aceptó otros dos correos HTML (solicitudes 67 y 68), con llegada a bandeja aún sin verificar. Consulta el [estado detallado y las evidencias](docs/ESTADO_ACTUAL.md).
 
-Repositorio público de entrega: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia). El repositorio está creado; el push del contenido del proyecto está pendiente.
+Repositorio público de entrega: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia). El código, las pruebas y las evidencias están publicados en la rama `main`.
 
 ## Inicio local
 
@@ -52,7 +52,7 @@ En n8n `2.43.8`, Compose fija `N8N_USE_WORKFLOW_PUBLICATION_SERVICE=false` para 
 - La base se inicializa desde la semilla y guarda los cambios en un volumen persistente. La cantidad solicitada puede superar el stock: la solicitud queda registrada y se alerta, sin descontar existencias ni confirmar una venta o reserva.
 - Si un mensaje no permite clasificación suficiente o el correo no corresponde a un cliente, se conserva como recepción para revisión; no se inventa un cliente o una solicitud válida.
 - El servicio está ligado a `127.0.0.1`, pero aún no incluye autenticación de clientes ni autorización multiusuario. No lo expongas a Internet ni lo uses con datos sensibles reales.
-- Las ejecuciones reales B1–B5, C1–C4 y cuatro notificaciones SMTP están documentadas en [Estado actual](docs/ESTADO_ACTUAL.md). El usuario confirmó la llegada de los dos primeros correos; la llegada de los dos mensajes HTML nuevos sigue pendiente de verificación. El [video explicativo del Anexo B](flujo/evidencias/video/demostracion-anexo-b.mp4) (2:36, 1280×720) reproduce trazas reales, pero no es una captura de la interfaz n8n; queda el riesgo de que el evaluador exija grabación en vivo. La revisión/sustentación final y el push del repositorio siguen pendientes.
+- Las ejecuciones reales B1–B5, C1–C4 y cuatro notificaciones SMTP están documentadas en [Estado actual](docs/ESTADO_ACTUAL.md). El usuario confirmó la llegada de los dos primeros correos; la llegada de los dos mensajes HTML nuevos sigue pendiente de verificación. El [video explicativo del Anexo B](flujo/evidencias/video/demostracion-anexo-b.mp4) (2:36, 1280×720) reproduce trazas reales, pero no es una captura de la interfaz n8n; queda el riesgo de que el evaluador exija grabación en vivo. La revisión y sustentación del candidato siguen pendientes.
 
 ## Estructura del repositorio
 

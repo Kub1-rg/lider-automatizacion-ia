@@ -43,8 +43,8 @@ Este checklist contrasta el [enunciado PDF](../material/Prueba_Tecnica_Lider_Aut
 - [x] Los PNG de correo son renders estáticos. El usuario indicó “Listo” tras revisar la etapa HTML; esto se registra como aceptación conversacional, no como verificación automatizada en Gmail u Outlook.
 - [ ] Falta la evidencia visual exigida para los cinco casos del Anexo B.
 - [ ] Falta la sustentación final y la modificación pequeña en vivo con el evaluador.
-- [x] Repositorio Git público creado: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia). El push del contenido está pendiente.
+- [x] Repositorio Git público publicado: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia), rama `main` con el contenido de la entrega.
 
 ## Bonus y decisiones fuera de alcance
 
-El PDF otorga hasta 10 puntos opcionales por Power BI, LangChain/LangGraph, una segunda API Node.js o despliegue en servidor. No se implementó bonus. No es requisito para cerrar los ejercicios 1–4. Aún no se ha hecho push del repositorio ni se activarán pruebas adicionales de correo/LLM desde este checklist.
+El PDF otorga hasta 10 puntos opcionales por Power BI, LangChain/LangGraph, una segunda API Node.js o despliegue en servidor. No se implementó bonus. No es requisito para cerrar los ejercicios 1–4. La entrega está publicada; consultar este checklist no activa pruebas adicionales de correo/LLM.
