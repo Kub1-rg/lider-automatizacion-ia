@@ -4,6 +4,10 @@
 
 Repositorio público publicado: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia), rama `main`, con código, pruebas y evidencias.
 
+**Continuación documentada:** [RETOMAR_SESION.md](RETOMAR_SESION.md). Una lectura de la base y de indicadores de configuración el 2026-10-19 a las 22:31:26 UTC (17:31:26, Colombia) confirmó 12 clientes, 12 productos, 68 solicitudes, 11 recepciones y 7 notificaciones. Los avisos 1–3 siguen pendientes, sin intentos; los avisos 4–7 figuran enviados, con un intento cada uno. SMTP permanece habilitado para la misma cuenta personal autorizada. Esta comprobación fue de solo lectura: no repitió pruebas de LLM ni envió correo.
+
+Chrome está conectado. Sigue pendiente obtener acceso autorizado a la pestaña local de n8n: el último intento recibió una denegación por permiso guardado, pese a que la configuración mostrada por el usuario tiene navegación predeterminada permitida. No se ha capturado la interfaz ni se ha iniciado una nueva corrida B para grabarla.
+
 ## Resultados por ejercicio
 
 ### 1. Flujo n8n

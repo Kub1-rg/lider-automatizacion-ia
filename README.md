@@ -6,6 +6,8 @@ Prototipo local para recibir solicitudes de clientes, clasificarlas con un model
 
 Repositorio público de entrega: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia). El código, las pruebas y las evidencias están publicados en la rama `main`.
 
+Para continuar en otra conversación, empieza por [RETOMAR_SESION.md](docs/RETOMAR_SESION.md): resume resultados, evidencias, configuración operativa y el bloqueo pendiente del permiso de Chrome para n8n.
+
 El [plan de cierre](docs/PLAN_CIERRE.md) organiza las etapas restantes: grabación real, práctica de sustentación y evaluación del bonus opcional. La documentación del esquema y las decisiones técnicas ya está completa; el [guion de grabación](docs/GRABACION_REAL.md) prepara la siguiente etapa.
 
 ## Inicio local
