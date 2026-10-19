@@ -50,6 +50,8 @@ La configuración local ya permite las llamadas reales a DeepSeek. Para volver a
 
 ## Pendiente para completar la entrega
 
+La revisión documental ya cerró la explicación de las ampliaciones al esquema, las elecciones técnicas y el contexto de catálogo en el README. El [plan de cierre](PLAN_CIERRE.md) organiza las siguientes etapas. La próxima es capturar una corrida real de B1–B5 con el [guion preparado](GRABACION_REAL.md); todavía no se ha realizado esa grabación.
+
 - **Verificación de correo HTML:** el usuario confirmó que recibió los mensajes de las solicitudes 65 y 66. SMTP aceptó los mensajes HTML asociados a las solicitudes 67 y 68, pero su llegada a la bandeja no está confirmada. Los avisos anteriores de outbox 1–3 continúan pendientes y no se borraron ni reenviaron. La vista PNG es estática; falta verificar el diseño en Gmail/Outlook.
 - **Evidencia visual:** el video explica las trazas reales de los cinco casos B; no muestra la interfaz n8n. Grabar una captura de UI si el evaluador exige esa forma de evidencia es el riesgo residual.
 - **Revisión y sustentación:** falta la revisión final del candidato y la sustentación. El repositorio público ya contiene la entrega. El bonus es opcional y no está implementado.

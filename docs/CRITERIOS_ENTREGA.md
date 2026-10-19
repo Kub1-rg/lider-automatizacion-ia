@@ -37,6 +37,7 @@ Este checklist contrasta el [enunciado PDF](../material/Prueba_Tecnica_Lider_Aut
 ## Documentación, seguridad y operación (PDF, p. 6)
 
 - [x] README explica instalación, ejecución, elecciones y decisiones; `.env.example` no contiene credenciales.
+- [x] README documenta las tablas `recepciones` y `notificaciones`, los campos añadidos a `solicitudes` y la incorporación del catálogo vigente al prompt del chatbot.
 - [x] [Sustentación](SUSTENTACION.md) contiene recorrido del grafo y una práctica técnica aislada, sin llamadas reales al LLM ni envío de correo.
 - [x] Se registran 17 llamadas reales al proveedor, 68 solicitudes, 21 pruebas pytest y los límites de la evidencia. La integración técnica usa un doble HTTP, no DeepSeek.
 - [x] SMTP aceptó los avisos reales; el usuario confirmó la llegada de los dos primeros. Los dos mensajes HTML más recientes siguen pendientes de confirmación en bandeja. Los avisos outbox 1–3 continúan pendientes.

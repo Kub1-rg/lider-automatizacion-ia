@@ -6,6 +6,8 @@ Prototipo local para recibir solicitudes de clientes, clasificarlas con un model
 
 Repositorio público de entrega: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia). El código, las pruebas y las evidencias están publicados en la rama `main`.
 
+El [plan de cierre](docs/PLAN_CIERRE.md) organiza las etapas restantes: grabación real, práctica de sustentación y evaluación del bonus opcional. La documentación del esquema y las decisiones técnicas ya está completa; el [guion de grabación](docs/GRABACION_REAL.md) prepara la siguiente etapa.
+
 ## Inicio local
 
 Requisitos: Windows 10/11, PowerShell, Git y Docker Desktop iniciado. Python 3.11 o 3.12 en el host se necesita solo para ejecutar el script de evidencia integrada. El primer arranque descarga las imágenes y puede tardar varios minutos.
@@ -44,6 +46,29 @@ Para ejecutar las pruebas automatizadas de API desde un entorno Python 3.11/3.12
 El acceso de workflows a variables del entorno de n8n está habilitado para que el workflow lea la configuración local (`N8N_BLOCK_ENV_ACCESS_IN_NODE=false`). Por ello el editor queda vinculado a loopback y este Compose es para desarrollo en el equipo, no para publicar en Internet.
 
 En n8n `2.43.8`, Compose fija `N8N_USE_WORKFLOW_PUBLICATION_SERVICE=false` para que importar/publicar con la CLI registre también el webhook HTTP en el arranque local. `/healthz` puede responder antes de que el webhook esté registrado; `bootstrap.ps1` reintenta la entrada inválida hasta 45 segundos y espera HTTP 422 antes de dar el inicio por terminado.
+
+## Elecciones técnicas
+
+- **FastAPI y Pydantic:** FastAPI expone la API HTTP y Pydantic define los contratos tipados de entrada y validación. Swagger/OpenAPI se genera en `/docs`, lo que permite inspeccionar rutas, esquemas y respuestas durante la revisión.
+- **SQLite:** la base usa la semilla local `material/datos_prueba.sql` dentro de un archivo persistido en un volumen Docker. Evita depender de un servidor de base de datos separado y facilita repetir el prototipo con los mismos datos. La semilla se conserva sin modificar.
+- **n8n:** se eligió como plataforma visual requerida por el alcance acordado, entre las opciones del enunciado, para mostrar el grafo de webhook, llamadas HTTP, validaciones y bifurcaciones. Como analogía con OpenClaw, la diferencia clave es que aquí las decisiones y el orden están representados en nodos inspeccionables, no delegados a un agente que seleccione herramientas libremente.
+- **DeepSeek:** es el proveedor usado en las pruebas reales, según la elección del usuario. Endpoint compatible y modelo son configurables; las pruebas estructuradas solicitan JSON. La elección mantiene el proveedor intercambiable y la salida estructurada verificable; el consumo se registra en las evidencias.
+
+## Ampliaciones al esquema
+
+El archivo de semilla original no se alteró. `api/database.py` inicializa tablas y agrega campos propios del flujo cuando arranca la aplicación:
+
+- **`recepciones`** guarda el correo y mensaje originales antes de llamar al LLM, una clave de idempotencia única y el hash del payload, clasificación, motivos, contador de intentos (0–2), estado, último error, resultado y relación a la solicitud creada. Cuando la salida no tiene un JSON válido, la clasificación puede quedar nula; para un correo de cliente desconocido se conserva `cliente_desconocido`. En ambos casos se puede revisar la recepción sin inventar datos para crear una solicitud.
+- **`solicitudes`** agrega `recepcion_id`, `resumen`, `requiere_revision` y `motivos_revision_json`. Un índice único parcial sobre `recepcion_id` impide asociar dos solicitudes con la misma recepción.
+- **`notificaciones`** es una outbox con una fila por solicitud, motivos, estado, intentos y `message_id`. La solicitud y su outbox se guardan dentro de la misma transacción. Antes del intento SMTP, la API confirma el estado `enviando`, el contador y el Message-ID; la conexión de red sucede después del commit, fuera de la transacción. Los resultados ambiguos quedan `incierta` para requerir revisión y evitar reenvío automático.
+
+La regla de stock se evalúa al crear la solicitud. El B4 real guardó seis escritorios frente a tres disponibles y devolvió `sin_stock=true`; no descuenta ni reserva existencias.
+
+## Contexto de catálogo para las pruebas del chatbot
+
+`scripts/probar_chatbot.py` consulta `GET /productos?q=` antes de enviar los casos C, serializa la lista vigente con nombre, precio y stock, añade la hora de lectura y sustituye `{{catalogo_json}}` y `{{catalogo_leido_en}}` en el prompt de sistema. Así las respuestas de prueba usan una instantánea fechada del catálogo y pueden revisarse junto con su evidencia.
+
+Este diseño aporta contexto al prompt; no es RAG ni una herramienta que el modelo llame por su cuenta. El modelo no consulta productos durante la respuesta: el script obtiene el catálogo antes de cada ronda de pruebas, así una ronda posterior incorpora los cambios del catálogo. Los doce productos caben en el contexto acotado del ensayo y no requieren recuperación vectorial.
 
 ## Decisiones y límites
 
