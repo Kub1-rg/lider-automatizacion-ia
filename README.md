@@ -2,13 +2,13 @@
 
 Prototipo local para recibir solicitudes de clientes, clasificarlas con un modelo configurable y registrarlas mediante una API FastAPI en SQLite. n8n coordina el flujo; la API valida y persiste los datos. El proyecto se prepara para ejecución local en Windows con Docker Desktop.
 
-**Estado al 19 de octubre de 2026:** API aprobada con 21 pruebas, suite técnica n8n de 16 grupos/107 aserciones, flujo B1–B5 con DeepSeek real (5/5) y chatbot C1–C4 revisado (4/4). El usuario confirmó la llegada de los dos primeros correos (solicitudes 65 y 66); SMTP aceptó otros dos correos HTML (solicitudes 67 y 68), con llegada a bandeja aún sin verificar. Consulta el [estado detallado y las evidencias](docs/ESTADO_ACTUAL.md).
+**Entrega actualizada el 19 de octubre de 2026 (Colombia):** API aprobada con 21 pruebas, suite técnica n8n de 16 grupos/107 aserciones, dos corridas B1–B5 con DeepSeek real (5/5 cada una) y chatbot C1–C4 revisado (4/4). La [grabación final de la interfaz n8n y API](flujo/evidencias/video/sustentacion-anexo-b.mp4) dura **4:09**, dentro del máximo de cinco minutos. Muestra el workflow organizado y resultados de ejecuciones guardadas. Consulta el [estado detallado y las evidencias](docs/ESTADO_ACTUAL.md).
 
 Repositorio público de entrega: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia). El código, las pruebas y las evidencias están publicados en la rama `main`.
 
-Para continuar en otra conversación, empieza por [RETOMAR_SESION.md](docs/RETOMAR_SESION.md): resume resultados, evidencias, configuración operativa y el bloqueo pendiente del permiso de Chrome para n8n.
+Para continuar en otra conversación, empieza por [RETOMAR_SESION.md](docs/RETOMAR_SESION.md): resume resultados, video final, configuración operativa y preparación para la sustentación. El acceso autorizado a Chrome/n8n fue comprobado.
 
-El [plan de cierre](docs/PLAN_CIERRE.md) organiza las etapas restantes: grabación real, práctica de sustentación y evaluación del bonus opcional. La documentación del esquema y las decisiones técnicas ya está completa; el [guion de grabación](docs/GRABACION_REAL.md) prepara la siguiente etapa.
+La documentación y la grabación están preparadas para entregar mediante este repositorio. El [plan de cierre](docs/PLAN_CIERRE.md) deja pendiente la sustentación con el evaluador y una modificación pequeña en vivo; el bonus es opcional. El [guion de grabación](docs/GRABACION_REAL.md) se conserva como referencia para reproducir la demostración.
 
 ## Inicio local
 
@@ -23,6 +23,12 @@ Requisitos: Windows 10/11, PowerShell, Git y Docker Desktop iniciado. Python 3.1
 La configuración local ya está preparada para DeepSeek. Si necesitas recrear los servicios normales, ejecuta `./scripts/bootstrap.ps1`. Para repetir C1–C4 ejecuta `python scripts/probar_chatbot.py`; son cuatro llamadas reales al proveedor y se actualiza `prompts/pruebas_chatbot.md`. Para repetir B1–B5 el comando ahora exige `python scripts/probar_flujo_real.py --allow-notifications`: una corrida completa genera cuatro solicitudes nuevas, consume cinco llamadas reales al proveedor y puede enviar hasta tres correos (B1, B3 y B4). Sin la bandera el runner termina antes de hacer solicitudes HTTP. No ejecutes estos comandos solo para consultar los resultados guardados. No compartas la configuración local en el chat ni en capturas.
 
 El webhook del workflow se publica en `POST http://127.0.0.1:5688/webhook/solicitud`. El cuerpo esperado contiene `cliente_email` y `mensaje`; el flujo puede usar el encabezado `Idempotency-Key` para que una repetición conserve su identidad. Entre contenedores, el flujo accede a la API por `http://api:8000`.
+
+### Lectura visual del workflow
+
+El editor organiza los 69 nodos funcionales en bloques con notas de color. Para sustentar, sigue la columna principal: **01 Recepción e idempotencia → 02 Contexto desde la API → 03 Clasificación con IA → 04 Registro y alertas**. Acerca el zoom al bloque que estés explicando. A la derecha están **05 Corrección**, **06 Registro después de corregir** y **07 Revisión humana**; el bloque **08** reúne los fallos de configuración y API. Los nodos auxiliares de contexto conservan los datos entre llamadas HTTP.
+
+La reorganización visual conserva los parámetros de los 69 nodos y todas las conexiones, y añade nueve notas. Se verificó mediante comparación estática del export anterior y posterior del runtime, sin ejecutar webhooks, LLM ni SMTP. Los hashes históricos de evidencia corresponden a la versión anterior al cambio de posiciones y notas. `python scripts/organizar_workflow.py` reproduce esta distribución sobre el JSON del repositorio; para llevarla a n8n hay que importar y publicar el workflow.
 
 La API ofrece `GET /clientes?email=...`, `GET /productos?q=...`, `POST /solicitudes`, `GET /solicitudes` con filtros y paginación, `GET /solicitudes/{id}` y `PATCH /solicitudes/{id}` para el estado. Swagger en `/docs` describe campos y respuestas. Para idempotencia, repetir `POST /recepciones` o el webhook con la misma `Idempotency-Key` y el mismo cuerpo devuelve la recepción existente; reutilizar esa clave con otro cuerpo responde `409`. Las recepciones se pueden consultar y actualizar con `GET/PATCH /recepciones/{id}`.
 
@@ -79,7 +85,7 @@ Este diseño aporta contexto al prompt; no es RAG ni una herramienta que el mode
 - La base se inicializa desde la semilla y guarda los cambios en un volumen persistente. La cantidad solicitada puede superar el stock: la solicitud queda registrada y se alerta, sin descontar existencias ni confirmar una venta o reserva.
 - Si un mensaje no permite clasificación suficiente o el correo no corresponde a un cliente, se conserva como recepción para revisión; no se inventa un cliente o una solicitud válida.
 - El servicio está ligado a `127.0.0.1`, pero aún no incluye autenticación de clientes ni autorización multiusuario. No lo expongas a Internet ni lo uses con datos sensibles reales.
-- Las ejecuciones reales B1–B5, C1–C4 y cuatro notificaciones SMTP están documentadas en [Estado actual](docs/ESTADO_ACTUAL.md). El usuario confirmó la llegada de los dos primeros correos; la llegada de los dos mensajes HTML nuevos sigue pendiente de verificación. El [video explicativo del Anexo B](flujo/evidencias/video/demostracion-anexo-b.mp4) (2:36, 1280×720) reproduce trazas reales, pero no es una captura de la interfaz n8n; queda el riesgo de que el evaluador exija grabación en vivo. La revisión y sustentación del candidato siguen pendientes.
+- Las ejecuciones reales B1–B5, C1–C4 y cuatro notificaciones SMTP están documentadas en [Estado actual](docs/ESTADO_ACTUAL.md). El usuario confirmó la llegada de los dos primeros correos y aceptó conversacionalmente el diseño HTML; la llegada de los mensajes HTML no tiene verificación automatizada. La [grabación final](flujo/evidencias/video/sustentacion-anexo-b.mp4) muestra la interfaz n8n y API durante 4:09; explica ejecuciones guardadas, no una nueva corrida durante la captura. El [video anterior de trazas](flujo/evidencias/video/demostracion-anexo-b.mp4) permanece como evidencia complementaria. La sustentación con el evaluador queda pendiente.
 
 ## Estructura del repositorio
 

@@ -1,31 +1,37 @@
 # Estado actual de la entrega
 
-**Corte verificado:** 2026-10-19 21:49:44 UTC (16:49:44, America/Bogota). Resultados comunicados y revisados por el agente principal. La [ejecución del plan técnico Astra](PLAN_ASTRA.md) se implementó con Luna en esfuerzo alto e integración a cargo del agente principal.
+**Corte de cierre:** 2026-10-20 04:04 UTC (19 de octubre, 23:04, Colombia). Esta revisión fue de solo lectura y edición documental; no repitió pruebas ni envió correos. Las suites aprobadas que se citan son resultados históricos, no corridas nuevas.
 
-Repositorio público publicado: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia), rama `main`, con código, pruebas y evidencias.
+Repositorio público: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia), rama `main`.
 
-**Continuación documentada:** [RETOMAR_SESION.md](RETOMAR_SESION.md). Una lectura de la base y de indicadores de configuración el 2026-10-19 a las 22:31:26 UTC (17:31:26, Colombia) confirmó 12 clientes, 12 productos, 68 solicitudes, 11 recepciones y 7 notificaciones. Los avisos 1–3 siguen pendientes, sin intentos; los avisos 4–7 figuran enviados, con un intento cada uno. SMTP permanece habilitado para la misma cuenta personal autorizada. Esta comprobación fue de solo lectura: no repitió pruebas de LLM ni envió correo.
+**Video final:** [sustentacion-anexo-b.mp4](../flujo/evidencias/video/sustentacion-anexo-b.mp4), 4:09.45, H.264/AAC, 1280×608. Es una captura del usuario de la interfaz real: workflow organizado, ejecuciones guardadas B1–B5 (IDs 15–19), solicitud 72 y recepción 16. No muestra una nueva corrida durante la grabación. Se recortaron las barras del navegador y de Windows; se conservó el audio sin recodificar. La revisión visual se hizo por muestreo, sin transcribir ni certificar palabra por palabra la narración. [Índice y manifiesto](../flujo/evidencias/video/README.md).
 
-Chrome está conectado. Sigue pendiente obtener acceso autorizado a la pestaña local de n8n: el último intento recibió una denegación por permiso guardado, pese a que la configuración mostrada por el usuario tiene navegación predeterminada permitida. No se ha capturado la interfaz ni se ha iniciado una nueva corrida B para grabarla.
+**Runtime leído al cierre:** 12 clientes, 12 productos, 72 solicitudes, 16 recepciones y 10 notificaciones. Cuatro notificaciones están `enviada`, con cuatro intentos en total; seis están `pendiente`, con cero intentos. SMTP está habilitado tras restaurar/reconstruir solo la API con `compose.yaml`. No se enviaron los avisos pendientes durante esta revisión.
+
+**Chrome/n8n:** acceso autorizado verificado en esta sesión; el bloqueo anterior quedó superado. Workflow organizado en ocho bloques y una guía de lectura: 69 nodos funcionales más nueve notas. Comparación estática del export antes/después confirmó los mismos parámetros funcionales y conexiones. Copia local de respaldo en `.runtime/visual-backup/`, excluida de Git.
 
 ## Resultados por ejercicio
 
 ### 1. Flujo n8n
 
-- [x] Workflow de 69 nodos importado y publicado en n8n 2.43.8. Su SHA-256 final es `8ec5735fdcbb6653ab879b416053b82e78d0fb9d454bdb7da17ba1b037d62d2c`.
+- [x] Workflow importado y publicado en n8n 2.43.8: 69 nodos funcionales y nueve notas visuales. SHA-256 actual de `flujo/solicitudes.json`: `5bd008ad567cc279f09fa7b6bb32b58227c333064a636b3331e32f48916d421d`. El hash histórico `8ec5735fdcbb6653ab879b416053b82e78d0fb9d454bdb7da17ba1b037d62d2c` corresponde a la versión validada antes de reorganizar posiciones y notas.
 - [x] Suite técnica: 16 grupos y 107 aserciones contra el webhook real de n8n y un doble HTTP local. Verificó B1–B5, alertas, revisión, reintentos, fallos del proveedor e idempotencia. Esto verifica ramas y contratos con fixtures; no mide la comprensión de un LLM.
 - [x] Ejecución con DeepSeek real B1–B5: 5/5 respuestas HTTP 200 del proveedor, una llamada por caso. Se crearon cuatro solicitudes (IDs 61–64) y una recepción manual (ID 7, cliente desconocido); se registraron ejecuciones n8n con IDs 6 a 10. El pedido B4 quedó con cantidad 6 frente a stock 3 y `sin_stock=true`.
 - [x] Pruebas reales de notificaciones: dos webhooks iniciales generaron las solicitudes 65 y 66; una corrida posterior con `--html` generó 67 y 68. DeepSeek respondió HTTP 200 una vez por caso. Los cuatro mensajes fueron aceptados por SMTP y las notificaciones 4–7 quedaron `enviada`, con un intento cada una. Las solicitudes B3 (queja/urgencia alta) y B4 (seis escritorios frente a stock tres) mantuvieron sus alertas.
 - [x] El usuario confirmó que recibió los mensajes de las solicitudes 65 y 66. La llegada de los mensajes HTML de las solicitudes 67 y 68 aún no está confirmada.
 - [x] Chatbot real: C1–C4 revisadas en la versión final del prompt, 4/4 acordes con el comportamiento esperado. La revisión confirmó rechazo a revelar el prompt (C1), precio unitario COP 780.000/stock 3 sin prometer entrega (C2), respuesta de privacidad sin metadatos internos (C3), y solicitud de referencia y cantidad con presupuesto opcional (C4).
 
-En total hubo **17 llamadas reales al proveedor**: cinco para B1–B5, cuatro en una primera ronda C1–C4, cuatro en la ronda final C1–C4, dos en la primera prueba de notificaciones y dos en la prueba HTML. No son diecisiete clasificaciones B. La primera ronda C tuvo fallos menores de cantidad ambigua, escalamiento prematuro, claridad de precio COP, detalles internos y longitud; se conserva como historial y la ronda final es la referencia.
+Hasta el primer corte hubo **17 llamadas reales al proveedor**: cinco para B1–B5, cuatro en una primera ronda C1–C4, cuatro en la ronda final C1–C4, dos en la primera prueba de notificaciones y dos en la prueba HTML. No son diecisiete clasificaciones B. La primera ronda C tuvo fallos menores de cantidad ambigua, escalamiento prematuro, claridad de precio COP, detalles internos y longitud; se conserva como historial y la ronda final es la referencia.
+
+- [x] Segunda corrida real B1–B5: [evidencia de las 23:05 UTC](../flujo/evidencias/real/flujo-real-20261019T230505Z-1df02d8d.json), 5/5 aprobados, un intento LLM por caso. Ejecuciones n8n 15–19, solicitudes 69–72 y recepciones 12–16; B5 no creó solicitud. Se confirmó `NOTIFICATIONS_ENABLED=false` antes de ejecutarla. Los avisos 8–10 quedaron pendientes sin intentos. Después se restauró la configuración normal de API con notificaciones activas.
+
+El total **documentado** es ahora **22 llamadas reales**: las 17 anteriores más cinco de la segunda corrida B. No se hicieron llamadas nuevas al convertir el video, reorganizar visualmente el flujo o preparar esta entrega.
 
 ### 2. API REST y consultas SQL
 
 - [x] 21 pruebas pytest aprobadas. Incluyen la ejecución de las seis consultas SQL sobre una base temporal sembrada y sus resultados esperados, y guardas para que el runner B requiera autorización explícita de notificaciones.
 - [x] Smoke normal: API health HTTP 200, OpenAPI HTTP 200 y editor n8n HTTP 200.
-- [x] La API tiene 68 solicitudes en la base normal tras las pruebas B y de notificación; el seed original de 60 solicitudes se conservó, sin reiniciar la base. Las pruebas SQL usan una base temporal y mantienen los resultados esperados: 11 solicitudes pendientes, distribución 18 consultas (30 %), 30 pedidos (50 %) y 12 quejas (20 %), además de las agregaciones y pedidos sobre stock.
+- [x] La API tiene 72 solicitudes en la base normal tras las dos corridas B y las pruebas de notificación; el seed original de 60 solicitudes se conservó, sin reiniciar la base. Las pruebas SQL usan una base temporal y mantienen los resultados esperados: 11 solicitudes pendientes, distribución 18 consultas (30 %), 30 pedidos (50 %) y 12 quejas (20 %), además de las agregaciones y pedidos sobre stock.
 - [x] La prueba previa sin clave produjo una recepción `revision_manual` con motivo `llm_not_configured` y cero intentos, sin crear una solicitud ficticia. Fue una comprobación de fallback anterior a la ejecución real; actualmente la clave ya está configurada localmente.
 
 ### 3. Prompts y chatbot
@@ -34,6 +40,9 @@ En total hubo **17 llamadas reales al proveedor**: cinco para B1–B5, cuatro en
 - [x] Se conserva la ronda C inicial en [chatbot-v1](../prompts/evidencias/chatbot-v1-20261019T202737Z.md), junto con la razón de las mejoras.
 
 ## Evidencias
+
+- [Grabación final de interfaz n8n/API](../flujo/evidencias/video/sustentacion-anexo-b.mp4), 4:09, y [manifiesto verificable](../flujo/evidencias/video/manifiesto-sustentacion.json).
+- [Segunda corrida B1–B5](../flujo/evidencias/real/flujo-real-20261019T230505Z-1df02d8d.json), ejecuciones 15–19, 5/5.
 
 - [B1–B5 con proveedor real](../flujo/evidencias/real/flujo-real-20261019T202729Z-afcf5fa1.json). Todas las respuestas observadas del proveedor fueron HTTP 200 con un intento. Los avisos de outbox 1 (urgencia B1), 2 (queja y urgencia B3) y 3 (stock B4) quedaron pendientes; esto no es evidencia de envío SMTP.
 - [Notificaciones SMTP reales](../flujo/evidencias/correo/notificaciones-20261019T212803+0000.json) y [guía de evidencia](../flujo/evidencias/correo/README.md). SMTP aceptó los mensajes asociados a notificaciones 4 y 5; ambos registros quedaron `enviada`, con un intento y Message-ID distintos. Repetir el POST para la notificación 4 no envió un duplicado y conservó un intento. La aceptación SMTP no confirma que el mensaje haya llegado a la bandeja.
@@ -54,9 +63,9 @@ La configuración local ya permite las llamadas reales a DeepSeek. Para volver a
 
 ## Pendiente para completar la entrega
 
-La revisión documental ya cerró la explicación de las ampliaciones al esquema, las elecciones técnicas y el contexto de catálogo en el README. El [plan de cierre](PLAN_CIERRE.md) organiza las siguientes etapas. La próxima es capturar una corrida real de B1–B5 con el [guion preparado](GRABACION_REAL.md); todavía no se ha realizado esa grabación.
+Los ejercicios obligatorios tienen código y evidencias documentadas; el video final ya está incorporado. La evaluación final corresponde al evaluador. El [plan de cierre](PLAN_CIERRE.md) conserva como siguiente etapa la sustentación y una modificación pequeña en vivo, posteriores a la entrega.
 
-- **Verificación de correo HTML:** el usuario confirmó que recibió los mensajes de las solicitudes 65 y 66. SMTP aceptó los mensajes HTML asociados a las solicitudes 67 y 68, pero su llegada a la bandeja no está confirmada. Los avisos anteriores de outbox 1–3 continúan pendientes y no se borraron ni reenviaron. La vista PNG es estática; falta verificar el diseño en Gmail/Outlook.
-- **Evidencia visual:** el video explica las trazas reales de los cinco casos B; no muestra la interfaz n8n. Grabar una captura de UI si el evaluador exige esa forma de evidencia es el riesgo residual.
+- **Verificación de correo HTML:** el usuario confirmó que recibió los mensajes de las solicitudes 65 y 66. SMTP aceptó los mensajes HTML asociados a las solicitudes 67 y 68, pero su llegada a la bandeja no está confirmada. Los avisos de outbox 1–3 y 8–10 continúan pendientes y no se borraron ni reenviaron. La vista PNG es estática; falta verificar el diseño en Gmail/Outlook.
+- **Evidencia visual:** el video final captura n8n/API y muestra resultados de ejecuciones guardadas de los cinco casos. No afirmar que se lanzó otra corrida mientras se grababa. La narración no fue auditada palabra por palabra.
 - **Revisión y sustentación:** falta la revisión final del candidato y la sustentación. El repositorio público ya contiene la entrega. El bonus es opcional y no está implementado.
 

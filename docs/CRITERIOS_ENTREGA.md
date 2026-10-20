@@ -9,7 +9,7 @@ Este checklist contrasta el [enunciado PDF](../material/Prueba_Tecnica_Lider_Aut
 | Webhook recibe email y mensaje, clasifica con LLM, valida JSON y reintenta una vez | [Workflow n8n 2.43.8](../flujo/solicitudes.json); [evidencia B1–B5](../flujo/evidencias/real/flujo-real-20261019T202729Z-afcf5fa1.json) | Verificado. Cinco llamadas reales al clasificador, una por caso; respuestas HTTP 200. |
 | Asociar cliente/producto, crear solicitud y manejar alertas de queja, urgencia y stock | API valida relaciones y stock; evidencia B1–B5 y [pruebas SMTP](../flujo/evidencias/correo/README.md), [prueba HTML](../flujo/evidencias/correo-html/README.md) | Verificado en los casos reales y en 16 grupos/107 aserciones técnicas. Los fixtures técnicos son simulados y se reportan aparte. |
 | Exportar workflow y documentar prompt clasificador | [solicitudes.json](../flujo/solicitudes.json), [clasificador.md](../prompts/clasificador.md) | Completo. |
-| Video de hasta cinco minutos o capturas procesando los cinco casos B | [Video explicativo de trazas reales](../flujo/evidencias/video/demostracion-anexo-b.mp4) (2:36, 1280×720) y [JSON detallado](../flujo/evidencias/real/flujo-real-20261019T202729Z-afcf5fa1.json) | Parcial: explica las cinco trazas reales, pero no graba la interfaz n8n. Si el evaluador requiere captura UI, queda ese riesgo residual. |
+| Video de hasta cinco minutos o capturas procesando los cinco casos B | [Grabación final de n8n/API](../flujo/evidencias/video/sustentacion-anexo-b.mp4) (4:09) y [segunda corrida real B1–B5](../flujo/evidencias/real/flujo-real-20261019T230505Z-1df02d8d.json) | Entregado: captura de la interfaz y resultados guardados de B1–B5, con detalle API de B4/B5. No se presenta como una nueva corrida durante la grabación. |
 
 ## Ejercicio 2 — API REST (PDF, pp. 3–4)
 
@@ -17,7 +17,7 @@ Este checklist contrasta el [enunciado PDF](../material/Prueba_Tecnica_Lider_Aut
 |---|---|---|
 | Endpoints de clientes, productos y solicitudes; filtros, detalle y cambio de estado | [API](../api/main.py); Swagger local `http://127.0.0.1:18018/docs` | Implementado; smoke normal respondió HTTP 200. |
 | Validaciones de tipo/urgencia/estado, regla de stock y errores HTTP | [API](../api/main.py), [pruebas automatizadas](../tests) | Implementado; 21 pruebas pytest aprobadas. |
-| Probar con datos SQL suministrados sin alterarlos | [Semilla](../material/datos_prueba.sql), [estado de pruebas](ESTADO_ACTUAL.md) | Verificado con base temporal; la base normal conserva 68 solicitudes y el seed de 60. |
+| Probar con datos SQL suministrados sin alterarlos | [Semilla](../material/datos_prueba.sql), [estado de pruebas](ESTADO_ACTUAL.md) | Verificado con base temporal; la base normal conserva 72 solicitudes y el seed de 60. |
 
 ## Ejercicio 3 — Consultas SQL (PDF, p. 4)
 
@@ -39,10 +39,10 @@ Este checklist contrasta el [enunciado PDF](../material/Prueba_Tecnica_Lider_Aut
 - [x] README explica instalación, ejecución, elecciones y decisiones; `.env.example` no contiene credenciales.
 - [x] README documenta las tablas `recepciones` y `notificaciones`, los campos añadidos a `solicitudes` y la incorporación del catálogo vigente al prompt del chatbot.
 - [x] [Sustentación](SUSTENTACION.md) contiene recorrido del grafo y una práctica técnica aislada, sin llamadas reales al LLM ni envío de correo.
-- [x] Se registran 17 llamadas reales al proveedor, 68 solicitudes, 21 pruebas pytest y los límites de la evidencia. La integración técnica usa un doble HTTP, no DeepSeek.
+- [x] Se registran 22 llamadas reales documentadas al proveedor, 72 solicitudes, 21 pruebas pytest históricas y los límites de la evidencia. La integración técnica usa un doble HTTP, no DeepSeek.
 - [x] SMTP aceptó los avisos reales; el usuario confirmó la llegada de los dos primeros. Los dos mensajes HTML más recientes siguen pendientes de confirmación en bandeja. Los avisos outbox 1–3 continúan pendientes.
 - [x] Los PNG de correo son renders estáticos. El usuario indicó “Listo” tras revisar la etapa HTML; esto se registra como aceptación conversacional, no como verificación automatizada en Gmail u Outlook.
-- [ ] Falta la evidencia visual exigida para los cinco casos del Anexo B.
+- [x] Grabación final de interfaz real de 4:09 incorporada y enlazada, junto con las evidencias de los cinco casos del Anexo B.
 - [ ] Falta la sustentación final y la modificación pequeña en vivo con el evaluador.
 - [x] Repositorio Git público publicado: [Kub1-rg/lider-automatizacion-ia](https://github.com/Kub1-rg/lider-automatizacion-ia), rama `main` con el contenido de la entrega.
 

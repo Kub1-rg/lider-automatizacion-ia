@@ -1,0 +1,62 @@
+{
+  "kind": "captura_usuario_interfaz_n8n_api",
+  "prepared_at_utc": "2026-10-20T04:07:11+00:00",
+  "source": {
+    "name": "2026-10-19 22-58-52.mkv",
+    "sha256": "e97ab65279b5fc3185932b1be5bbb3cdd886fd7a02c9f3624730d624be0b191a",
+    "bytes": 24620030,
+    "duration_seconds": 249.45,
+    "resolution": [
+      1280,
+      720
+    ],
+    "container": "Matroska"
+  },
+  "output": {
+    "path": "sustentacion-anexo-b.mp4",
+    "sha256": "9716bf514df8be541aa4a56db1db56ed1053fb7c83403c2df782d87a531ca650",
+    "bytes": 14627506,
+    "duration_seconds": 249.45,
+    "resolution": [
+      1280,
+      608
+    ],
+    "video_codec": "H.264",
+    "audio_codec": "AAC",
+    "container": "MP4"
+  },
+  "transform": {
+    "crop": "1280:608:0:80",
+    "purpose": "Excluir barras del navegador y Windows; mantener el contenido de n8n/API",
+    "video": "libx264 CRF20 preset fast",
+    "audio": "stream copy; sin recodificar",
+    "order_and_timing": "sin cortes ni reordenamiento; duración conservada"
+  },
+  "review": {
+    "method": "Fotogramas a 1,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,248 segundos; decodificación completa de video y audio; volumen no silencioso",
+    "visual_scope": "workflow organizado, ejecuciones guardadas 15–19, solicitud72 y recepción16",
+    "limitations": "Revisión visual por muestreo; narración no transcrita ni auditada palabra por palabra. No demuestra una nueva corrida durante la captura."
+  },
+  "evidence": "../real/flujo-real-20261019T230505Z-1df02d8d.json",
+  "execution_ids": [
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "request_ids": [
+    69,
+    70,
+    71,
+    72
+  ],
+  "reception_ids": [
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "no_new_external_actions": "Preparar y convertir el video no llamó a webhook, API de proveedor ni SMTP."
+}

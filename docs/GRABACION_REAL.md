@@ -1,6 +1,6 @@
 # Guion para grabar la demostración real
 
-**Duración objetivo:** 3–4 minutos; máximo 5. Esta es una grabación futura de la interfaz real, no una tarea ya completada. Refuerza la evidencia del procesamiento que pide el PDF; el video existente explica trazas y no captura n8n. No mostrar `.env`, credenciales, destinatarios, encabezados de correo ni datos de cuentas.
+**Estado:** el usuario ya grabó la [versión final de 4:09](../flujo/evidencias/video/sustentacion-anexo-b.mp4), mostrando la interfaz y resultados de ejecuciones guardadas. Este guion se conserva para una eventual nueva corrida durante la captura, que no fue lo mostrado en el video final. **Duración objetivo para repetir:** 3–4 minutos; máximo 5. Refuerza la evidencia del procesamiento que pide el PDF; el video existente explica trazas y no captura n8n. No mostrar `.env`, credenciales, destinatarios, encabezados de correo ni datos de cuentas.
 
 ## Preparación, solo cuando se vaya a grabar
 

@@ -1,6 +1,6 @@
 # Guía breve de sustentación y práctica
 
-El objetivo es explicar el flujo como una integración controlada entre n8n, una API y SQLite, y demostrar una modificación pequeña sin consumir DeepSeek ni enviar correo. El [estado actual](ESTADO_ACTUAL.md) y los [criterios de entrega](CRITERIOS_ENTREGA.md) enlazan las evidencias y los faltantes.
+El objetivo es explicar el flujo como una integración controlada entre n8n, una API y SQLite, y demostrar una modificación pequeña sin consumir DeepSeek ni enviar correo. El [video final de 4:09](../flujo/evidencias/video/sustentacion-anexo-b.mp4) ya está incorporado; recorre los bloques 01–04 y las ejecuciones guardadas 15–19. Las vistas históricas de ejecuciones conservan su distribución anterior, mientras el editor muestra el layout organizado. El [estado actual](ESTADO_ACTUAL.md) y los [criterios de entrega](CRITERIOS_ENTREGA.md) enlazan las evidencias y los faltantes.
 
 ## Recorrido de la solución
 
@@ -12,7 +12,7 @@ El objetivo es explicar el flujo como una integración controlada entre n8n, una
 6. El flujo conserva la respuesta de webhook: 201 para solicitud registrada, 202 para revisión, 422 para entrada inválida y 503 para indisponibilidad. La API crea alertas en outbox; SMTP puede aceptar un mensaje sin demostrar su llegada a bandeja.
 7. En `http://127.0.0.1:18018/docs`, muestra `GET /clientes`, `GET /productos`, creación y consulta de solicitudes. Explica que los 21 tests de API usan bases temporales.
 
-La ejecución documentada incluye B1–B5 reales con DeepSeek (5/5), C1–C4 en la ronda final (4/4 revisadas), 21 tests de API y 16 grupos/107 aserciones en la integración técnica aislada. Hubo 17 llamadas reales al proveedor en total y la base normal tiene 68 solicitudes. El fixture técnico verifica ramas HTTP, no calidad del modelo. SMTP aceptó cuatro mensajes; el usuario confirmó la llegada de los dos primeros. La llegada de los dos HTML más recientes sigue sin confirmarse, y las notificaciones 1–3 permanecen pendientes.
+La ejecución documentada incluye B1–B5 reales con DeepSeek (5/5), C1–C4 en la ronda final (4/4 revisadas), 21 tests de API y 16 grupos/107 aserciones en la integración técnica aislada. El total documentado es de 22 llamadas reales al proveedor y la base normal tiene 72 solicitudes después de la segunda corrida B1–B5 (ejecuciones 15–19). El fixture técnico verifica ramas HTTP, no calidad del modelo. SMTP aceptó cuatro mensajes; el usuario confirmó la llegada de los dos primeros. La llegada de los dos HTML más recientes sigue sin confirmarse, y las notificaciones 1–3 permanecen pendientes.
 
 ## Cómo explicarlo si vienes de OpenClaw
 
